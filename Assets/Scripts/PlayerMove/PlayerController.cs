@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.tag == "RecoveryItem")
         {
-            if (Health > 5)
+            if (Health < 5)
             {
                 Health += 1;
             }
