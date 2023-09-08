@@ -11,4 +11,21 @@ public class PlayerController : MonoBehaviour
     {
         OnMoveEvent?.Invoke(direction);
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "BadBug")
+        {
+            Debug.Log("³ª»Û¹ú·¹");
+        }
+        else if(other.gameObject.tag == "FixBug")
+        {
+            Debug.Log("ÁÁÀº¹ú·¹");
+        }
+        else if (other.gameObject.tag == "RecoveryItem")
+        {
+            Debug.Log("È¸º¹");
+        }
+        other.gameObject.SetActive(false);
+    }
 }

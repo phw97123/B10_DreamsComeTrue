@@ -19,4 +19,6 @@ public class PlayerInputController : PlayerController
             GetComponent<Animator>().SetBool("Move", false);
         }
     }
+
+    
 }

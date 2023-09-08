@@ -5,18 +5,21 @@ using UnityEngine.InputSystem.XR;
 
 public class ObjectsFall : MonoBehaviour
 {
-    private int speed;
+    public float speed;
     private Rigidbody2D _rigidbody;
 
     private void Awake()
     {
-        speed = Random.Range(4, 8);
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
     {
         ApplyFall();
+        if(transform.position.y < -5.5)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void ApplyFall()
