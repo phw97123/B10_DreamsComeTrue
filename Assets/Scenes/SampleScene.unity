@@ -639,7 +639,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 783464789}
+      - m_Target: {fileID: 1254656764}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: ActivePauseButton
         m_Mode: 1
@@ -772,7 +772,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 405688558}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1254656764}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: QuitButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &405688558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1256,7 +1268,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 745810858}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1254656764}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ActivePauseButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &745810858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1306,7 +1330,6 @@ GameObject:
   - component: {fileID: 783464787}
   - component: {fileID: 783464786}
   - component: {fileID: 783464788}
-  - component: {fileID: 783464789}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1357,18 +1380,6 @@ MonoBehaviour:
   - {fileID: 3860853953169755309, guid: 26092a874c41f7f4799fab85685f76b5, type: 3}
   - {fileID: 2466358423062475927, guid: 46a7c596817565041b7470c5617b1ad4, type: 3}
   - {fileID: 3088004075490035346, guid: caa3a19811ff20249bb90818b539617d, type: 3}
---- !u!114 &783464789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 783464785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebdd8efdf99ea3f428c6148a88ec3399, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &917216735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1735,7 +1746,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1223614492}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1254656764}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: RetryButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1223614492
 MonoBehaviour:
   m_ObjectHideFlags: 0

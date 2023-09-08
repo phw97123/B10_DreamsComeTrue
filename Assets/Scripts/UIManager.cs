@@ -1,22 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    private bool pauseOn = false;
+    private GameObject backGround;
+    private GameObject pausePanel;
+
+    void Awake()
+    {
+        backGround = GameObject.Find("Canvas").transform.Find("BackGround").gameObject; 
+        pausePanel = GameObject.Find("Canvas").transform.Find("PausePanel").gameObject;
+    }
     public void ActivePauseButton()
     {
-        Time.timeScale = 0;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+        if (!pauseOn) // 일시 중지 아니면
+        {
+            Time.timeScale = 0;
+            backGround.SetActive(false);
+            pausePanel.SetActive(true);
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
+            backGround.SetActive(true);
+            pausePanel.SetActive(false);
+        }
+        pauseOn = !pauseOn; // 불 값 반전
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RetryButton()
     {
-        
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene("SampleScene"); // 현재 씬 다시 로드
+    }
+
+    public void QuitButton()
+    {
+        //SceneManager.LoadScene("StartScene"); // 희원님에게 Scene 이름 물어보기.
     }
 }
