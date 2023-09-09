@@ -4,7 +4,22 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public RuntimeAnimatorController[] characterAnimController; 
+    
+    private GameObject player;
+    Animator playerAnimator; 
+
+    private void Awake()
+    {
+        player = GameObject.Find("Player"); 
+
+        if (PlayerPrefs.HasKey("CharacterNumber"))
+        {
+            playerAnimator = player.GetComponent<Animator>();
+            playerAnimator.runtimeAnimatorController = characterAnimController[PlayerPrefs.GetInt("CharacterNumber")];
+        }
+    }
+
     void Start()
     {
         
