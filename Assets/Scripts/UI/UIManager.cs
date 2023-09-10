@@ -8,11 +8,13 @@ public class UIManager : MonoBehaviour
     private bool pauseOn = false;
     private GameObject backGround;
     private GameObject pausePanel;
+    private GameObject resultPanel; 
 
     void Awake()
     {
         backGround = GameObject.Find("Canvas").transform.Find("BackGround").gameObject; 
         pausePanel = GameObject.Find("Canvas").transform.Find("PausePanel").gameObject;
+        resultPanel = GameObject.Find("Canvas").transform.Find("ResultPanel").gameObject; 
     }
     public void ActivePauseButton()
     {
@@ -31,6 +33,7 @@ public class UIManager : MonoBehaviour
         pauseOn = !pauseOn; // 불 값 반전
     }
 
+
     public void RetryButton()
     {
         Time.timeScale = 1.0f;
@@ -39,6 +42,6 @@ public class UIManager : MonoBehaviour
 
     public void QuitButton()
     {
-        //SceneManager.LoadScene("StartScene"); // 희원님에게 Scene 이름 물어보기.
+        SceneManager.LoadScene("StartScene");
     }
 }

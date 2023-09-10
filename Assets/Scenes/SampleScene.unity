@@ -398,12 +398,12 @@ GameObject:
   - component: {fileID: 71827926}
   - component: {fileID: 71827925}
   m_Layer: 5
-  m_Name: 'EndPanel '
+  m_Name: 'ResultPanel '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &71827924
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2889,7 +2889,7 @@ GameObject:
   - component: {fileID: 2011991366}
   - component: {fileID: 2011991365}
   m_Layer: 5
-  m_Name: PauseText
+  m_Name: ResultText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
