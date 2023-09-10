@@ -22,10 +22,12 @@ public class HUD : MonoBehaviour
         switch (type)
         {
             case InfoType.Health:
+                //float curHealth = GameManager.instance.hp;
+                //float maxHealth = GameManager.instance.maxHp;
+                //mySlider.value = curHealth / maxHealth;
                 break;
             case InfoType.Score:
-                break;
-            case InfoType.Time:
+                //myText.text = string.Format("Score: {0:F0}", GameManager.instance.score);
                 break;
         }
     }
