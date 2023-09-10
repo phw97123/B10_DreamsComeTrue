@@ -21,13 +21,13 @@ public class UIManager : MonoBehaviour
         if (!pauseOn) // 일시 중지 아니면
         {
             Time.timeScale = 0;
-            backGround.SetActive(false);
+            //backGround.SetActive(false);
             pausePanel.SetActive(true);
         }
         else
         {
             Time.timeScale = 1.0f;
-            backGround.SetActive(true);
+            //backGround.SetActive(true);
             pausePanel.SetActive(false);
         }
         pauseOn = !pauseOn; // 불 값 반전
