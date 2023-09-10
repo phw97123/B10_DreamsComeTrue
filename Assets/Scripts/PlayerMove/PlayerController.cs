@@ -6,9 +6,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public event Action<Vector2> OnMoveEvent;
-    public int Score = 0;
-    public int Health = 5;
-    public bool IsDeath = true;
 
     public void CallMoveEvent(Vector2 direction)
     {
@@ -19,25 +16,16 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "BadBug")
         {
-            if(Health == 1)
-            {
-                IsDeath = false;
-            }
-            else
-            {
-                Health -= 1;
-            }
+            Debug.Log("³ª»Û¹ú·¹");
         }
         else if(other.gameObject.tag == "FixBug")
         {
-            Score += 1;
+            Debug.Log("ÁÁÀº¹ú·¹");
         }
         else if (other.gameObject.tag == "RecoveryItem")
         {
-            if (Health > 5)
-            {
-                Health += 1;
-            }
+            Debug.Log("È¸º¹");
         }
+        other.gameObject.SetActive(false);
     }
 }
