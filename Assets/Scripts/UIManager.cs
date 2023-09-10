@@ -33,6 +33,11 @@ public class UIManager : MonoBehaviour
         pauseOn = !pauseOn; // 불 값 반전
     }
 
+    public void ActiveResult()
+    {
+        // 죽는 함수
+        // 이기는 함수 
+    }
 
     public void RetryButton()
     {
