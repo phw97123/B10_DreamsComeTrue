@@ -48,12 +48,14 @@ public class StartSceneController : MonoBehaviour
 
         if(helpButton != null)
         {
-            helpButton.onClick.AddListener(OpenHelp); 
+            helpButton.onClick.AddListener(OpenHelp);
+            
         }
 
         if(helpExitBtn != null)
         {
-            helpExitBtn.onClick.AddListener(CloseHelp); 
+            helpExitBtn.onClick.AddListener(CloseHelp);
+            
         }
 
         if(leftBtn != null)
@@ -79,12 +81,16 @@ public class StartSceneController : MonoBehaviour
 
     private void OpenHelp()
     {
-        helpPanel.SetActive(true); 
+        helpPanel.SetActive(true);
+        leftBtn.gameObject.SetActive(false);
+        rightBtn.gameObject.SetActive(false);
     }
 
     private void CloseHelp()
     {
-        helpPanel.SetActive(false); 
+        helpPanel.SetActive(false);
+        leftBtn.gameObject.SetActive(true);
+        rightBtn.gameObject.SetActive(true);
     }
 
     private void ShowCharacter(bool moveLeft)
