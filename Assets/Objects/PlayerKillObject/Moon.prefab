@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6793279944202307715}
   - component: {fileID: 9018930359889532328}
   - component: {fileID: 3189380318222922662}
+  - component: {fileID: 6269785584373315303}
   m_Layer: 0
   m_Name: Moon
   m_TagString: Untagged
@@ -27,11 +28,11 @@ Transform:
   m_GameObject: {fileID: 5050420959051726963}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.71, y: -1.45, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.175, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &9018930359889532328
 SpriteRenderer:
@@ -114,7 +115,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.014115214, y: -0.042345047}
@@ -130,3 +131,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.06779, y: 5.9453106}
   m_EdgeRadius: 0
+--- !u!114 &6269785584373315303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5050420959051726963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e3743279d3c4a54e9e851a68807f2d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

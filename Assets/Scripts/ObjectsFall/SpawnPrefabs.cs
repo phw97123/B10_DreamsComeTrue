@@ -16,17 +16,21 @@ public class SpawnPrefabs : MonoBehaviour
 
     void Start()
     {
-        PullObject = new GameObject[100];
+        PullObject = new GameObject[500];
         for (int i = 0; i < PullObject.Length; i++)
         {
             int index = Random.Range(0, 101);
-            if (index > 80)
+            if (index >= 35)
             {
                 index = 0;
             }
-            else if (index > 0)
+            else if (index >= 5)
             {
                 index = 1;
+            }
+            else
+            {
+                index = Random.Range(2, 7);
             }
             Vector3 spawnPos = new Vector3(Random.Range(-randomX, randomX), Y, 1);
             GameObject gameObject = Instantiate(Prefabs[index], spawnPos, Prefabs[index].transform.rotation);
@@ -50,7 +54,7 @@ public class SpawnPrefabs : MonoBehaviour
         for (int i = 0; i < spawnNum; i++)
         {
             PullObject[_pivot++].SetActive(true);
-            if (_pivot == 100)
+            if (_pivot == 500)
             {
                 _pivot = 0;
             }

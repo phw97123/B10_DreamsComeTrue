@@ -6,7 +6,11 @@ TagManager:
   tags:
   - FixBug
   - BadBug
-  - RecoveryItem
+  - Battery
+  - ChatGpt
+  - CPU
+  - Insecticide
+  - NullImage
   layers:
   - Default
   - TransparentFX

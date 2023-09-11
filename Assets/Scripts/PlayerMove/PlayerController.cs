@@ -23,7 +23,23 @@ public class PlayerController : MonoBehaviour
         {
             Score++;
         }
-        else if (other.gameObject.tag == "RecoveryItem")
+        else if(other.gameObject.tag == "Battery")
+        {
+
+        }
+        else if (other.gameObject.tag == "ChatGpt")
+        {
+
+        }
+        else if (other.gameObject.tag == "CPU")
+        {
+
+        }
+        else if (other.gameObject.tag == "Insecticide")
+        {
+
+        }
+        else if (other.gameObject.tag == "NullImage")
         {
 
         }
