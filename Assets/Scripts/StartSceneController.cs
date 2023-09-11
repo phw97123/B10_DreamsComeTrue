@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
+using TMPro; 
 
 public class StartSceneController : MonoBehaviour
 {
@@ -24,6 +25,10 @@ public class StartSceneController : MonoBehaviour
 
     int spriteCount = 0;
 
+    // Start버튼 깜빡이는 효과
+    private TMP_Text startText;
+    private float blinkInterval = 0.5f; // 깜박임 제어 
+    private float timer;
 
     private void Awake()
     {
@@ -48,6 +53,8 @@ public class StartSceneController : MonoBehaviour
         nameText = canvasTransform.transform.Find("NameTxt").GetComponent<Text>();
         abilityText = canvasTransform.transform.Find("AbilityTxt").GetComponent<Text>();
         explanationText = canvasTransform.transform.Find("ExplanationTxt").GetComponent<Text>();
+
+        startText = startButton.GetComponentInChildren<TMP_Text>();
     }
     void Start()
     {
@@ -89,12 +96,21 @@ public class StartSceneController : MonoBehaviour
         {
             rightBtn.onClick.AddListener(() => ShowCharacter(false));
         }
-
-
     }
 
     void Update()
     {
+        timer += Time.deltaTime; 
+
+        //시간의 흐름에 따라 텍스트가 투명해진다 
+        if (timer < blinkInterval)
+            startText.color = new Color(1, 1, 1, 1 - timer); 
+        else //텍스트가 사라진 후에 alpha값을 시간이 점점 증가하면서 텍스트가 서서히 나타나는 효과
+        {
+            startText.color = new Color(1, 1, 1, timer);
+            if (timer > 1f) // 1보다 크면 0으로 초기화하여 깜빡임 주기 제어
+                timer = 0; 
+        }
     }
 
     private void StartGame()
@@ -102,7 +118,7 @@ public class StartSceneController : MonoBehaviour
         PlayerPrefs.SetInt("CharacterNumber", spriteCount);
         SceneManager.LoadScene("SampleScene"); 
     }
-
+    
     private void OpenHelp()
     {
         helpPanel.SetActive(true);
