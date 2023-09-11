@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
         else if(other.gameObject.tag == "FixBug")
         {
             Debug.Log("ÁÁÀº¹ú·¹");
+            GameManager.instance.addFixBug(1);
+            Debug.Log(GameManager.instance.totalFixBug);
         }
         else if (other.gameObject.tag == "RecoveryItem")
         {
@@ -28,4 +30,5 @@ public class PlayerController : MonoBehaviour
         }
         other.gameObject.SetActive(false);
     }
+    
 }
