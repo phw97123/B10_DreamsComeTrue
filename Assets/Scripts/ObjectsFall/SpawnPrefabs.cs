@@ -8,7 +8,7 @@ public class SpawnPrefabs : MonoBehaviour
     public GameObject[] Prefabs;        //0 배드 버그 1 픽스 버그 2 살충제 3 cpu 4 건전지 5 chatgpt 6 null  이미지
     public GameObject[] PullObject;     //풀링 오브젝트
     private float randomX = 2.7f;
-    private float Y = 5.2f;
+    private float Y = 3.15f;
     private float time = 0;
     private int _spawnNum = 3;
     private int _count = 0;
