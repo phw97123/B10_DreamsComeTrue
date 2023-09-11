@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public event Action<Vector2> OnMoveEvent;
-    public int Score = 0;
+    public static int Score = 0;
     public void CallMoveEvent(Vector2 direction)
     {
         OnMoveEvent?.Invoke(direction);
