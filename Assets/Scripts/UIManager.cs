@@ -7,7 +7,6 @@ public class UIManager : MonoBehaviour
 {
     private bool pauseOn = false;
     public GameObject canvas;
-    private GameObject backGround;
     public GameObject pausePanel;
     private GameObject pauseText;
     private GameObject resultText;
@@ -16,7 +15,6 @@ public class UIManager : MonoBehaviour
     
     void Awake()
     {
-        backGround = canvas.transform.Find("BackGround").gameObject; 
         pausePanel = canvas.transform.Find("PausePanel").gameObject;
         pauseText = pausePanel.transform.Find("PauseText").gameObject;
         resultText = pausePanel.transform.Find("ResultText").gameObject;
@@ -29,13 +27,11 @@ public class UIManager : MonoBehaviour
         if (!pauseOn) // 일시 중지 아니면
         {
             Time.timeScale = 0;
-            //backGround.SetActive(false);
             pausePanel.SetActive(true);
         }
         else
         {
             Time.timeScale = 1.0f;
-            //backGround.SetActive(true);
             pausePanel.SetActive(false);
         }
         pauseOn = !pauseOn; // 불 값 반전
