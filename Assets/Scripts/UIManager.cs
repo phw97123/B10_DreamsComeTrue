@@ -35,8 +35,7 @@ public class UIManager : MonoBehaviour
 
     public void ActiveResult()
     {
-        // 죽는 함수
-        // 이기는 함수 
+        
     }
 
     public void RetryButton()
