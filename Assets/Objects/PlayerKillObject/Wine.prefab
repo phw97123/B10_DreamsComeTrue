@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 2467570154460706925}
   - component: {fileID: 2351507308563940709}
   - component: {fileID: -6577182292276670720}
+  - component: {fileID: 7875064237730108350}
   m_Layer: 0
   m_Name: Wine
-  m_TagString: Untagged
+  m_TagString: KillObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,3 +144,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e3743279d3c4a54e9e851a68807f2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &7875064237730108350
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7336030201188967416}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6
