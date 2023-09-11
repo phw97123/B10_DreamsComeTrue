@@ -64,4 +64,3 @@ public class SpawnPrefabs : MonoBehaviour
         time = 0;
     }
 }
-}
