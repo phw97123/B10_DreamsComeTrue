@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public float StunTime = 1;
     private bool _isStun = false;
     private float _time = 0;
+
     public void CallMoveEvent(Vector2 direction)
     {
         OnMoveEvent?.Invoke(direction);
@@ -63,4 +64,33 @@ public class PlayerController : MonoBehaviour
         GetComponent<PlayerInput>().enabled = true;
         _isStun = false;
     }
+    //public void BugDieItemOn()//아이템 실행함수
+    //{
+        // PlayerController에서 BugDieItem가 활성화 되어있다면 마비 안하는걸로 조건문 걸기
+    //    if (BugDie == 16)
+    //    {
+    //        BugDieItemCountTxt.text = BugDie.ToString();
+    //        BugDieItem.SetActive(true);
+    //    }
+    //    else
+    //    {
+    //        BugDie = 16;
+    //        BugDieItemCountTxt.text = BugDie.ToString();
+    //        Debug.Log(BugDie + "임");
+    //    }
+
+
+    //}
+    //public void BugDieItemCount()
+    //{
+    //    BugDie -= 1;
+    //    BugDieItemCountTxt.text = BugDie.ToString();
+    //    Debug.Log(BugDie + "남음");
+    //    if (BugDie == 0)
+    //    {
+    //        Debug.Log("함수 실행이 끝났습니다");
+    //        BugDie = 16;
+    //        BugDieItem.SetActive(false);
+    //    }
+    //}
 }
