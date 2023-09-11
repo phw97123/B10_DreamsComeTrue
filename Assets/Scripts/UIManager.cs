@@ -6,15 +6,23 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     private bool pauseOn = false;
+    public GameObject canvas;
     private GameObject backGround;
-    private GameObject pausePanel;
-    private GameObject resultPanel; 
-
+    public GameObject pausePanel;
+    private GameObject pauseText;
+    private GameObject resultText;
+    private GameObject continueButton;
+    private GameObject finalScole;
+    
     void Awake()
     {
-        backGround = GameObject.Find("Canvas").transform.Find("BackGround").gameObject; 
-        pausePanel = GameObject.Find("Canvas").transform.Find("PausePanel").gameObject;
-        resultPanel = GameObject.Find("Canvas").transform.Find("ResultPanel").gameObject; 
+        backGround = canvas.transform.Find("BackGround").gameObject; 
+        pausePanel = canvas.transform.Find("PausePanel").gameObject;
+        pauseText = pausePanel.transform.Find("PauseText").gameObject;
+        resultText = pausePanel.transform.Find("ResultText").gameObject;
+        continueButton = pausePanel.transform.Find("ContinueButton").gameObject;
+        finalScole = pausePanel.transform.Find("FinalScore").gameObject;
+        pausePanel.SetActive(false);
     }
     public void ActivePauseButton()
     {
@@ -37,7 +45,11 @@ public class UIManager : MonoBehaviour
     {
         if(PlayerController.IsDead == true)
         {
-            resultPanel.SetActive(true);
+            pausePanel.SetActive(true);
+            pauseText.SetActive(false);
+            resultText.SetActive(true);
+            continueButton.SetActive(false);
+            finalScole.SetActive(true);
         }
     }
 
