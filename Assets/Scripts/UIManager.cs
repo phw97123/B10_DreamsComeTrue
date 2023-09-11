@@ -6,15 +6,19 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     private bool pauseOn = false;
+    public GameObject canvas;
     private GameObject backGround;
     private GameObject pausePanel;
     private GameObject resultPanel; 
-
+    
     void Awake()
     {
-        backGround = GameObject.Find("Canvas").transform.Find("BackGround").gameObject; 
-        pausePanel = GameObject.Find("Canvas").transform.Find("PausePanel").gameObject;
-        resultPanel = GameObject.Find("Canvas").transform.Find("ResultPanel").gameObject; 
+        backGround = canvas.transform.Find("BackGround").gameObject; 
+        
+        resultPanel = canvas.transform.Find("ResultPanel").gameObject;
+        pausePanel = canvas.transform.Find("PausePanel").gameObject;
+        pausePanel.SetActive(false);
+        resultPanel.SetActive(false);
     }
     public void ActivePauseButton()
     {
