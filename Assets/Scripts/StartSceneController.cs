@@ -138,7 +138,7 @@ public class StartSceneController : MonoBehaviour
 
         Vector3 currentPosition = selectCharacter.transform.position;
 
-        //Sprite 크기가 달라서 위치 조정 
+        //Sprite 크기가 달라서 위치 조정 및 캐릭터 설명
         if (spriteCount == 0) //PHW
         {
             currentPosition.y = -1.5f;
