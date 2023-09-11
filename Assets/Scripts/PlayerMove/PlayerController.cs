@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
         {
             if (GameManager.instance.BugDieItem.activeSelf == true)//만약 활성화 되어있다면.
             {
-                GameManager.instance.BugDieItemCount();
+                GameManager.instance.BugDieItemCount();  //얘네들도 함수로 만들기
             }
             if (Hp > 0)
             {

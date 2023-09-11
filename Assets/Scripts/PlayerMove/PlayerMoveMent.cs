@@ -18,6 +18,7 @@ public class PlayerMoveMent : MonoBehaviour
     private void Start()
     {
         _controller.OnMoveEvent += Move;
+        //OnJump();
     }
 
 
@@ -35,5 +36,13 @@ public class PlayerMoveMent : MonoBehaviour
     {
         direction = direction * 3;
         _rigidbody.velocity = direction;
+    }
+    public void OnJump()
+    {
+        //_rigidbody.AddForce(Vector2.up * 20,ForceMode2D.Impulse);
+        _rigidbody.velocity = new Vector2(_rigidbody.velocity.y, 10);
+     //   transform.position = new Vector3(transform.position.x,transform.position.y+2,0);
+        Debug.Log(_rigidbody.velocity.y);
+
     }
 }
