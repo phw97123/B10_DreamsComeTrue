@@ -9,7 +9,7 @@ public class SpawnPrefabs : MonoBehaviour
     private float randomX = 2.7f;
     private float Y = 5.2f;
     private float time = 0;
-    private int _spawnNum = 3;
+    private int _spawnNum = 4;
     private int _count = 0;
     private int _maxSpeed = 8;
     private int _minSpeed = 4;
@@ -30,13 +30,17 @@ public class SpawnPrefabs : MonoBehaviour
         for (int i = 0; i < spawnNum; i++)
         {
             int index = Random.Range(0, 10);
-            if (index > 3)
+            if (index > 4)
             {
                 index = 0;
             }
-            else if (index > 1)
+            else if (index > 3)
             {
                 index = 1;
+            }
+            else if (index > 2) 
+            {
+                index = 3;
             }
             else
             {
