@@ -14,31 +14,53 @@ public class StartSceneController : MonoBehaviour
     private Button leftBtn; 
     private Button rightBtn;
     private GameObject selectCharacter;
-    private SpriteRenderer spriteRenderer; 
+    private SpriteRenderer spriteRenderer;
+
+    private Text nameText;
+    private Text abilityText;
+    private Text explanationText; 
 
     public Sprite[] characterSprite;
 
     int spriteCount = 0;
 
-    void Start()
+
+    private void Awake()
     {
         canvasTransform = GameObject.Find("Canvas").transform;
 
+        //start 버튼
         startButton = canvasTransform.Find("StartBtn").GetComponent<Button>();
 
+        //도움말
         helpButton = canvasTransform.Find("HelpBtn").GetComponent<Button>();
         helpPanel = canvasTransform.Find("HelpPanel").gameObject;
         helpExitBtn = helpPanel.transform.Find("HelpExit").GetComponent<Button>();
 
+        //캐릭터 선택 
         leftBtn = canvasTransform.transform.Find("LeftBtn").GetComponent<Button>();
         rightBtn = canvasTransform.transform.Find("RightBtn").GetComponent<Button>();
-        selectCharacter = GameObject.Find("SelectCharacter").gameObject; 
-
+        selectCharacter = GameObject.Find("SelectCharacter").gameObject;
         spriteRenderer = selectCharacter.GetComponent<SpriteRenderer>();
+      
 
-        spriteRenderer.sprite = characterSprite[0]; 
+        //캐릭터 설명 
+        nameText = canvasTransform.transform.Find("NameTxt").GetComponent<Text>();
+        abilityText = canvasTransform.transform.Find("AbilityTxt").GetComponent<Text>();
+        explanationText = canvasTransform.transform.Find("ExplanationTxt").GetComponent<Text>();
+    }
+    void Start()
+    {
+        //스프라이트 초기화 
+        spriteRenderer.sprite = characterSprite[0];
 
-        //버튼
+        //캐릭터 설명 초기화 
+        nameText.text = "PHW";
+        abilityText.text = "마비시간 1초, 속도 1";
+        explanationText.text = "PlayStation5를 좋아합니다."; 
+
+
+        //버튼 이벤트
         if (startButton != null)
         {
             //Button이 클릭되었을 때 호출되는 핸들러 
@@ -67,6 +89,8 @@ public class StartSceneController : MonoBehaviour
         {
             rightBtn.onClick.AddListener(() => ShowCharacter(false));
         }
+
+
     }
 
     void Update()
@@ -115,21 +139,37 @@ public class StartSceneController : MonoBehaviour
         Vector3 currentPosition = selectCharacter.transform.position;
 
         //Sprite 크기가 달라서 위치 조정 
-        if (spriteCount == 0)
+        if (spriteCount == 0) //PHW
         {
             currentPosition.y = -1.5f;
+
+            nameText.text = "PHW";
+            abilityText.text = "마비시간 1, 속도 1";
+            explanationText.text = "PlayStation5를 좋아합니다.";
         }
-        else if(spriteCount == 1)
+        else if(spriteCount == 1) //JBJ
+        {
+            currentPosition.y = -2.4f;
+
+            nameText.text = "JBJ";
+            abilityText.text = "크기 Down, 마비시간 1.25";
+            explanationText.text = "FIFA를 좋아합니다.";
+        }
+        else if(spriteCount == 2)//KEJ
         {
             currentPosition.y = -2f;
+
+            nameText.text = "KEJ";
+            abilityText.text = "마비시간 0.75";
+            explanationText.text = "와인을 좋아합니다.";
         }
-        else if(spriteCount == 2)
+        else //JJH
         {
-            currentPosition.y = -2f; 
-        }
-        else
-        {
-            currentPosition.y = -2.2f; 
+            currentPosition.y = -1.9f;
+
+            nameText.text = "JJH";
+            abilityText.text = "속도 1.25";
+            explanationText.text = "자는 것을 좋아합니다";
         }
 
         selectCharacter.transform.position = currentPosition;
