@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
     {
         backGround = GameObject.Find("Canvas").transform.Find("BackGround").gameObject; 
         pausePanel = GameObject.Find("Canvas").transform.Find("PausePanel").gameObject;
-        //resultPanel = GameObject.Find("Canvas").transform.Find("ResultPanel").gameObject; 
+        resultPanel = GameObject.Find("Canvas").transform.Find("ResultPanel").gameObject; 
     }
     public void ActivePauseButton()
     {
