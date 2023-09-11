@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,9 +9,13 @@ public class GameManager : MonoBehaviour
     private GameObject player;
     Animator playerAnimator;
     public static GameManager instance;
-
+    public GameObject BugDieItem;
+    public int BugDie;
+    public TMP_Text BugDieItemCountTxt;
     private void Awake()
     {
+        BugDie = 16;
+        BugDieItemCountTxt.text = BugDie.ToString();
         if (null == instance)
         {
             // 씬 시작될때 인스턴스 초기화, 씬을 넘어갈때도 유지되기위한 처리
@@ -29,6 +34,34 @@ public class GameManager : MonoBehaviour
         {
             playerAnimator = player.GetComponent<Animator>();
             playerAnimator.runtimeAnimatorController = characterAnimController[PlayerPrefs.GetInt("CharacterNumber")];
+        }
+    }
+    public void BugDieItemOn()//아이템 실행함수
+    {
+        // PlayerController에서 BugDieItem가 활성화 되어있다면 마비 안하는걸로 조건문 걸기
+        if (BugDie == 16)
+        {
+            
+            BugDieItem.SetActive(true);
+        }
+        else
+        {
+            BugDie = 16;
+            Debug.Log(BugDie + "임");
+        }
+
+
+    }
+    public void BugDieItemCount()
+    {
+        BugDie -= 1;
+
+        Debug.Log(BugDie + "남음");
+        if (BugDie == 0)
+        {
+            Debug.Log("함수 실행이 끝났습니다");
+            BugDie = 16;
+            BugDieItem.SetActive(false);       
         }
     }
 

@@ -18,8 +18,13 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "BadBug")
         {
+            if (GameManager.instance.BugDieItem.activeSelf == true)//만약 활성화 되어있다면.
+            {
+                GameManager.instance.BugDieItemCount();
+            }
             if (Hp > 0)
             {
+                
                 Hp--;
             }
         }
@@ -33,6 +38,11 @@ public class PlayerController : MonoBehaviour
             {
                 Hp++;
             }
+        }
+        else if (other.gameObject.tag == "Pesticides")
+        {
+            Debug.Log("나 닿았어");
+            GameManager.instance.BugDieItemOn();// 텍스트에서 점점 뺴는 것
         }
         other.gameObject.SetActive(false);
     }
