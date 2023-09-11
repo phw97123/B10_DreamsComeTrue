@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,6 +11,8 @@ public class PlayerInputController : PlayerController
     {
         Vector2 moveInput = value.Get<Vector2>().normalized;
         CallMoveEvent(moveInput);
+        Debug.Log("¾È³ç");
+
         if (moveInput.magnitude > 0.5)
         {
             GetComponent<Animator>().SetBool("Move", true);
