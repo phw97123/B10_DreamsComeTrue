@@ -52,5 +52,6 @@ public class GameManager : MonoBehaviour
     public void addFixBug(int fixBug)
     {
         totalFixBug += fixBug;
+        //만약에 게임을 다시 시작하면 totalFixBug를 다시 0으로 하면 됩니당.
     }
 }
