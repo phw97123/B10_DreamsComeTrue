@@ -1865,7 +1865,10 @@ MonoBehaviour:
   Prefabs:
   - {fileID: 3860853953169755309, guid: 26092a874c41f7f4799fab85685f76b5, type: 3}
   - {fileID: 2466358423062475927, guid: 46a7c596817565041b7470c5617b1ad4, type: 3}
-  - {fileID: 3088004075490035346, guid: caa3a19811ff20249bb90818b539617d, type: 3}
+  - {fileID: 7731864120197031555, guid: bc1e44cd201c78a488ae533bbe19aafd, type: 3}
+  - {fileID: 4752018246739527351, guid: fa2212c68abdada4782e1cf82a525608, type: 3}
+  - {fileID: 4204064424077979380, guid: ac83be8ce9e55d247ae91ca04f777ddb, type: 3}
+  - {fileID: 5586112072874195071, guid: 5f5554e02c20e0c4cae59894cdcab6ea, type: 3}
   PullObject: []
 --- !u!1 &917216735
 GameObject:
@@ -2768,6 +2771,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8efcfcbcc45bcc4893d96bfe2994528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Speed: 1
+  StunTime: 1
 --- !u!114 &1566745592
 MonoBehaviour:
   m_ObjectHideFlags: 0
