@@ -32,42 +32,28 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "BadBug")
+        switch (other.gameObject.tag)
         {
-            if (!_isStun)
-            {
+            case "BadBug":
                 GetComponent<PlayerInput>().enabled = false;
                 _isStun = true;
-            }
-        }
-        else if(other.gameObject.tag == "FixBug")
-        {
-            Score++;
-        }
-        else if(other.gameObject.tag == "Battery")
-        {
-            Debug.Log("Battery");
-        }
-        else if (other.gameObject.tag == "ChatGpt")
-        {
-            Debug.Log("ChatGpt");
-        }
-        else if (other.gameObject.tag == "CPU")
-        {
-            Debug.Log("CPU");
-        }
-        else if (other.gameObject.tag == "Insecticide")
-        {
-            Debug.Log("Insecticide");
-        }
-        else if (other.gameObject.tag == "NullImage")
-        {
-            Debug.Log("NullImage");
-        }
-        else if(other.gameObject.tag == "KillObject")
-        {
-            Debug.Log("KillObject");
-            IsDead = true;
+                break;
+            case "FixBug":
+                Score++;
+                break;
+            case "Battery":
+                break;
+            case "ChatGpt":
+                break;
+            case "CPU":
+                break;
+            case "Insecticide":
+                break;
+            case "NullImage":
+                break;
+            case "KillObject":
+                IsDead = true;
+                break;
         }
         other.gameObject.SetActive(false);
     }
