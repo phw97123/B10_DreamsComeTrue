@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public event Action<Vector2> OnMoveEvent;
     public static int Score = 0;
+    public static bool IsDead = false;
     public void CallMoveEvent(Vector2 direction)
     {
         OnMoveEvent?.Invoke(direction);
@@ -16,7 +17,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "BadBug")
         {
-
+            IsDead = true;
         }
         else if(other.gameObject.tag == "FixBug")
         {
