@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         BugDie = 16;
-        BugDieItemCountTxt.text = BugDie.ToString();
+       
         if (null == instance)
         {
             // 씬 시작될때 인스턴스 초기화, 씬을 넘어갈때도 유지되기위한 처리
@@ -41,12 +41,13 @@ public class GameManager : MonoBehaviour
         // PlayerController에서 BugDieItem가 활성화 되어있다면 마비 안하는걸로 조건문 걸기
         if (BugDie == 16)
         {
-            
+            BugDieItemCountTxt.text = BugDie.ToString();
             BugDieItem.SetActive(true);
         }
         else
         {
             BugDie = 16;
+            BugDieItemCountTxt.text = BugDie.ToString();
             Debug.Log(BugDie + "임");
         }
 
@@ -55,7 +56,7 @@ public class GameManager : MonoBehaviour
     public void BugDieItemCount()
     {
         BugDie -= 1;
-
+        BugDieItemCountTxt.text = BugDie.ToString();
         Debug.Log(BugDie + "남음");
         if (BugDie == 0)
         {
