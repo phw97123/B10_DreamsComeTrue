@@ -34,8 +34,11 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "BadBug")
         {
-            GetComponent<PlayerInput>().enabled = false;
-            _isStun = true;
+            if (!_isStun)
+            {
+                GetComponent<PlayerInput>().enabled = false;
+                _isStun = true;
+            }
         }
         else if(other.gameObject.tag == "FixBug")
         {
