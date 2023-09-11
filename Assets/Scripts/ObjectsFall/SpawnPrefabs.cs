@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class SpawnPrefabs : MonoBehaviour
 {
-    public GameObject[] Prefabs;        //0 ¹èµå ¹ö±× 1 ÇÈ½º ¹ö±× 2 »ìÃæÁ¦ 3 cpu 4 °ÇÀüÁö 5 chatgpt 6 null  ÀÌ¹ÌÁö
-    public GameObject[] PullObject;     //Ç®¸µ ¿ÀºêÁ§Æ®
+    public GameObject[] Prefabs;        //0 ë°°ë“œ ë²„ê·¸ 1 í”½ìŠ¤ ë²„ê·¸ 2 ì‚´ì¶©ì œ 3 cpu 4 ê±´ì „ì§€ 5 chatgpt 6 null  ì´ë¯¸ì§€
+    public GameObject[] PullObject;     //í’€ë§ ì˜¤ë¸Œì íŠ¸
     private float randomX = 2.7f;
     private float Y = 5.2f;
     private float time = 0;
@@ -63,5 +63,4 @@ public class SpawnPrefabs : MonoBehaviour
         }
         time = 0;
     }
-}
 }
