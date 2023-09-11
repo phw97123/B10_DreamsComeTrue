@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour
     private GameObject resultText;
     private GameObject continueButton;
     private GameObject finalScole;
-    
+
     void Awake()
     {
         pausePanel = canvas.transform.Find("PausePanel").gameObject;
@@ -39,24 +39,35 @@ public class UIManager : MonoBehaviour
 
     public void ActiveResult()
     {
-        if(PlayerController.IsDead == true)
+
+        pausePanel.SetActive(true);
+        pauseText.SetActive(false);
+        resultText.SetActive(true);
+        continueButton.SetActive(false);
+        finalScole.SetActive(true);
+
+    }
+
+    void Update()
+    {
+        if (PlayerController.IsDead == true)
         {
-            pausePanel.SetActive(true);
-            pauseText.SetActive(false);
-            resultText.SetActive(true);
-            continueButton.SetActive(false);
-            finalScole.SetActive(true);
+            Time.timeScale = 0;
+            ActiveResult();
         }
     }
 
     public void RetryButton()
     {
-        Time.timeScale = 1.0f;
+        Time.timeScale = 1;
+        PlayerController.IsDead = false;
         SceneManager.LoadScene("SampleScene"); // 현재 씬 다시 로드
     }
 
     public void QuitButton()
     {
+        PlayerController.IsDead = false;
+        Time.timeScale = 1;
         SceneManager.LoadScene("StartScene");
     }
 }
