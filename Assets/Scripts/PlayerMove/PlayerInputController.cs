@@ -11,7 +11,6 @@ public class PlayerInputController : PlayerController
     {
         Vector2 moveInput = value.Get<Vector2>().normalized;
         CallMoveEvent(moveInput);
-        Debug.Log("¾È³ç");
         if (value.Get<Vector2>().x < 0)
         {
             transform.Find("MainSprite").gameObject.GetComponent<SpriteRenderer>().flipX = true;

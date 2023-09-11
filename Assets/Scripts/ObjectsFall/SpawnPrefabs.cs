@@ -5,14 +5,35 @@ using UnityEngine;
 
 public class SpawnPrefabs : MonoBehaviour
 {
-    public GameObject[] Prefabs;        //0 배드 버그 1 픽스 버그 2 회복
+    public GameObject[] Prefabs;        //0 배드 버그 1 픽스 버그 2 살충제 3 cpu 4 건전지 5 chatgpt 6 null  이미지
+    public GameObject[] PullObject;     //풀링 오브젝트
     private float randomX = 2.7f;
     private float Y = 5.2f;
     private float time = 0;
     private int _spawnNum = 3;
     private int _count = 0;
-    private int _maxSpeed = 8;
-    private int _minSpeed = 4;
+    private int _pivot = 0;
+
+    void Start()
+    {
+        PullObject = new GameObject[100];
+        for (int i = 0; i < PullObject.Length; i++)
+        {
+            int index = Random.Range(0, 101);
+            if (index > 80)
+            {
+                index = 0;
+            }
+            else if (index > 0)
+            {
+                index = 1;
+            }
+            Vector3 spawnPos = new Vector3(Random.Range(-randomX, randomX), Y, 1);
+            GameObject gameObject = Instantiate(Prefabs[index], spawnPos, Prefabs[index].transform.rotation);
+            PullObject[i] = gameObject;
+            gameObject.SetActive(false);
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -26,34 +47,21 @@ public class SpawnPrefabs : MonoBehaviour
 
     private void SpawnPrefab(int spawnNum)
     {
-        
         for (int i = 0; i < spawnNum; i++)
         {
-            int index = Random.Range(0, 10);
-            if (index > 3)
+            PullObject[_pivot++].SetActive(true);
+            if (_pivot == 100)
             {
-                index = 0;
+                _pivot = 0;
             }
-            else if (index > 1)
-            {
-                index = 1;
-            }
-            else
-            {
-                index = 2;
-            }
-            Vector3 spawnPos = new Vector3(Random.Range(-randomX, randomX), Y, 1);
-            GameObject prefabs = Instantiate(Prefabs[index], spawnPos, Prefabs[index].transform.rotation);
-            prefabs.GetComponent<ObjectsFall>().speed = Random.Range(_minSpeed , _maxSpeed);
         }
         _count++;
         if (_count > 30)
         {
             _count = 0;
             spawnNum++;
-            _maxSpeed += 2;
-            _minSpeed++;
         }
         time = 0;
     }
+}
 }
