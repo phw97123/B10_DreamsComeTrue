@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public event Action<Vector2> OnMoveEvent;
+    public event Action onJumpEvent; 
+
     public static int Score = 0;
     public static bool IsDead = false;
     public float StunTime = 1;
@@ -15,6 +17,11 @@ public class PlayerController : MonoBehaviour
     public void CallMoveEvent(Vector2 direction)
     {
         OnMoveEvent?.Invoke(direction);
+    }
+
+    public void CallJumpEvent()
+    {
+        onJumpEvent?.Invoke(); 
     }
 
     void Update()
