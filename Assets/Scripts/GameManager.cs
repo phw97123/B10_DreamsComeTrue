@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerController.IsDead = false;
         Time.timeScale = 1;
+        UIManager.Instance.RemoveUIScript(UIMAINHANDLER_NAME);
         SceneManager.LoadScene("StartScene");
     }
 }
