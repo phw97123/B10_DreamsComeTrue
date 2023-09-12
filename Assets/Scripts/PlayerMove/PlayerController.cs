@@ -109,7 +109,15 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("아이템 다 사라졌으...");
                 break;
             case "KillObject":
-                IsDead = true;
+                if (NotDeadItem.activeSelf)
+                {
+                    NotDeadtime = 5;
+                    NotDeadItem.SetActive(false);
+                }
+                else
+                {
+                    IsDead = true;
+                }
                 break;
         }
         other.gameObject.SetActive(false);
@@ -258,6 +266,7 @@ public class PlayerController : MonoBehaviour
             NotDeadItemOn();
         }
     }
+ 
 
     public void BadItem()
     {
