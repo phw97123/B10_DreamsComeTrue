@@ -20,13 +20,14 @@ public class SpawnPrefabs : MonoBehaviour
         for (int i = 0; i < PullObject.Length; i++)
         {
             int index = 0;
-            if (i >= 380)
-            {
-                index = 1;
-            }
-            else if (i >= 480)
+            if (i >= 200)
             {
                 index = Random.Range(2, 7);
+                index = 1;
+            }
+            else if (i >= 100)
+            {
+                index = 1; 
             }
             Vector3 spawnPos = new Vector3(Random.Range(-randomX, randomX), Y, 1);
             GameObject gameObject = Instantiate(Prefabs[index], spawnPos, Prefabs[index].transform.rotation);

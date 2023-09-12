@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public event Action<Vector2> OnMoveEvent;
-    public event Action onJumpEvent; 
+    public event Action onJumpEvent;
 
     public static int Score = 0;
     public static bool IsDead = false;
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
     public void CallJumpEvent()
     {
-        onJumpEvent?.Invoke(); 
+        onJumpEvent?.Invoke();
     }
 
     void Update()
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
         if (_isStun)
         {
             _time += Time.deltaTime;
-            if(_time > StunTime)
+            if (_time > StunTime)
             {
                 OutStun();
                 _time = 0;
@@ -66,6 +66,14 @@ public class PlayerController : MonoBehaviour
         if (SpeedItem.activeSelf)
         {
             SpeedItemOn();
+        }
+        if (NotDeadItem.activeSelf)
+        {
+            NotDeadItemOn();
+        }
+        if (JumpItem.activeSelf)
+        {
+            JumpItemOn();
         }
     }
 
@@ -81,16 +89,21 @@ public class PlayerController : MonoBehaviour
                 Score++;
                 break;
             case "Battery":
+                AgainGetJumpItem();
                 break;
             case "ChatGpt":
+                AgainGetNotDeadItem();
                 break;
             case "CPU":
+                AgainGetSpeed();
                 break;
             case "Insecticide":
                 BugDieItemOn();
                 Debug.Log("나 실행했어");
                 break;
             case "NullImage":
+                BadItem();
+                Debug.Log("아이템 다 사라졌으...");
                 break;
             case "KillObject":
                 IsDead = true;
@@ -108,24 +121,24 @@ public class PlayerController : MonoBehaviour
     public void BugDieItemOn()  // 살충제 아이템실행메서드
     {
 
-       
+
 
         if (BugDie == 16)   //처음 시작하는 거라면
         {
             BugDieItemCountTxt.text = BugDie.ToString();
             BugDieItem.SetActive(true);  //활성화 시켜주기
-            ItemsPosition(BugDieItem);   //위치 선정
+                                         //  ItemsPosition(BugDieItem);   //위치 선정
         }
         else  // 아이템 실행중 또 먹었다면
         {
-            BugDie = 16;   
+            BugDie = 16;
             BugDieItemCountTxt.text = BugDie.ToString();
-           
+
         }
 
 
     }
-    public void BugDieItemCount()  
+    public void BugDieItemCount()
     {
         if (BugDieItem.activeSelf == true)
         {
@@ -151,7 +164,7 @@ public class PlayerController : MonoBehaviour
         SpeedItem.SetActive(true);
         Speedtime -= Time.deltaTime;
         // Debug.Log(Speedtime);
-        SpeedItimeTxt.text = Speedtime.ToString();
+        SpeedItimeTxt.text = Speedtime.ToString("N2");
 
 
         //플레이어의 스피드 증가시키기 메서드만 추가하면 굿굿
@@ -166,7 +179,8 @@ public class PlayerController : MonoBehaviour
     {
         if (Speedtime == 5)  //처음이라면
         {
-            ItemsPosition(SpeedItem);
+            // ItemsPosition(SpeedItem);
+            Debug.Log("스피드 씨피유");
             SpeedItemOn();
         }
         else
@@ -180,8 +194,8 @@ public class PlayerController : MonoBehaviour
     {//지속적으로 할 수 있는 메서드 찾아보기
         JumpItem.SetActive(true);
         Jumptime -= Time.deltaTime;
-        Debug.Log(Jumptime);
-        JumpItimeTxt.text = Jumptime.ToString();
+        //Debug.Log(Jumptime);
+        JumpItimeTxt.text = Jumptime.ToString("N2");
 
 
         //플레이어의 점프 증가시키기 메서드만 추가하면 굿굿
@@ -196,7 +210,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Jumptime == 5)
         {
-
+            Debug.Log("점프 배터리");
             JumpItemOn();
         }
         else
@@ -211,8 +225,8 @@ public class PlayerController : MonoBehaviour
     {
         NotDeadItem.SetActive(true);
         NotDeadtime -= Time.deltaTime;
-        Debug.Log(NotDeadtime);
-        NotDeadItimeTxt.text = NotDeadtime.ToString();
+        // Debug.Log(NotDeadtime);
+        NotDeadItimeTxt.text = NotDeadtime.ToString("N2");
 
 
         //플레이어의 점프 증가시키기 메서드만 추가하면 굿굿
@@ -227,7 +241,7 @@ public class PlayerController : MonoBehaviour
     {
         if (NotDeadtime == 5)
         {
-
+            Debug.Log("챗 지피티 무적");
             NotDeadItemOn();
         }
         else
@@ -239,6 +253,7 @@ public class PlayerController : MonoBehaviour
 
     public void BadItem()
     {
+        Debug.Log("다 초기화");
         if (BugDieItem.activeSelf)
         {
             BugDieItem.SetActive(false);
@@ -261,27 +276,27 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void ItemsPosition(GameObject _Item)
-    {
-        //리스트를 만들고 담고 셋엑티브가 true인지 알아야한다. 몇개인지 알고 그 위치에 맞게 포지션을 부여한다.
-        //실행시킬 때마다 하기
-        int count = 0;
-        for (int i = 0; i < Items.Count; i++)
-        {
-            if (Items[i].activeSelf)
-            {
-                count++;
+    //public void ItemsPosition(GameObject _Item)
+    //{
+    //    //리스트를 만들고 담고 셋엑티브가 true인지 알아야한다. 몇개인지 알고 그 위치에 맞게 포지션을 부여한다.
+    //    //실행시킬 때마다 하기
+    //    int count = 0;
+    //    for (int i = 0; i < Items.Count; i++)
+    //    {
+    //        if (Items[i].activeSelf)
+    //        {
+    //            count++;
 
-            }
-            //포지션 위치 리스트 만들어서 정렬하기
+    //        }
+    //        //포지션 위치 리스트 만들어서 정렬하기
 
-        }
-        if (count == 1)
-            _Item.transform.localPosition = new Vector3(-20, 0, 0);
-        else if (count == 2)
-            _Item.transform.localPosition = new Vector3(-18, 0, 0);
-        Debug.Log(_Item.transform.localPosition);
-    }
+    //    }
+    //    if (count == 1)
+    //        _Item.transform.localPosition = new Vector3(-20, 0, 0);
+    //    else if (count == 2)
+    //        _Item.transform.localPosition = new Vector3(-18, 0, 0);
+    //  //  Debug.Log(_Item.transform.localPosition);
+    //}
     //IEnumerator enumerator()
     //{
     //    float time = 0;
