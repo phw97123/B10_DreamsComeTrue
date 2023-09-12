@@ -31,9 +31,12 @@ public class PlayerController : MonoBehaviour
     public TMP_Text NotDeadItimeTxt;
 
     public List<GameObject> Items = new List<GameObject>();
+    [SerializeField] public GameObject player;
+    private PlayerMoveMent playerMovement;
 
     private void Awake()
     {
+        playerMovement = player.GetComponent<PlayerMoveMent>();
         BugDie = 16;
         Speedtime = 5f;
         Jumptime = 5;
@@ -162,6 +165,7 @@ public class PlayerController : MonoBehaviour
     public void SpeedItemOn()
     {//지속적으로 할 수 있는 메서드 찾아보기
         SpeedItem.SetActive(true);
+        playerMovement.Speed = 4.8f;
         Speedtime -= Time.deltaTime;
         // Debug.Log(Speedtime);
         SpeedItimeTxt.text = Speedtime.ToString("N2");
@@ -172,7 +176,9 @@ public class PlayerController : MonoBehaviour
         {
             //스피드 감소
             Speedtime = 5;
+            playerMovement.Speed = 1f;
             SpeedItem.SetActive(false);
+            
         }
     }
     public void AgainGetSpeed() //먹었는데 또 먹었다면
@@ -193,6 +199,7 @@ public class PlayerController : MonoBehaviour
     public void JumpItemOn()
     {//지속적으로 할 수 있는 메서드 찾아보기
         JumpItem.SetActive(true);
+        playerMovement.JumpForce = 14;
         Jumptime -= Time.deltaTime;
         //Debug.Log(Jumptime);
         JumpItimeTxt.text = Jumptime.ToString("N2");
@@ -203,6 +210,7 @@ public class PlayerController : MonoBehaviour
         {
             //점프 감소
             Jumptime = 5;
+            playerMovement.JumpForce = 7;
             JumpItem.SetActive(false);
         }
     }
@@ -263,11 +271,13 @@ public class PlayerController : MonoBehaviour
         {
             SpeedItem.SetActive(false);
             Speedtime = 5;
+            playerMovement.Speed = 1f;
         }
         if (JumpItem.activeSelf)
         {
             JumpItem.SetActive(false);
             Jumptime = 5;
+            playerMovement.JumpForce = 7;
         }
         if (NotDeadItem.activeSelf)
         {

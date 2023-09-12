@@ -3193,6 +3193,7 @@ MonoBehaviour:
   NotDeadtime: 0
   NotDeadItimeTxt: {fileID: 113973898}
   Items: []
+  player: {fileID: 1566745586}
 --- !u!50 &1566745593
 Rigidbody2D:
   serializedVersion: 4
