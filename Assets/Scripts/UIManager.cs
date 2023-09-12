@@ -41,14 +41,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private bool pauseOn = false;
-    public GameObject canvas;
-    public GameObject pausePanel;
-    private GameObject pauseText;
-    private GameObject resultText;
-    private GameObject continueButton;
-    private GameObject finalScole;
-
     void Awake()
     {
         if (Instance == null) //UIManager에 인스턴스가 없으면 현재 인스턴스
@@ -58,61 +50,7 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);// 현재 인스턴스를 파괴하여 중복 생성 방지
             return;
         }
-       
-        pausePanel = canvas.transform.Find("PausePanel").gameObject;
-        pauseText = pausePanel.transform.Find("PauseText").gameObject;
-        resultText = pausePanel.transform.Find("ResultText").gameObject;
-        continueButton = pausePanel.transform.Find("ContinueButton").gameObject;
-        finalScole = pausePanel.transform.Find("FinalScore").gameObject;
-        pausePanel.SetActive(false);
 
         DontDestroyOnLoad(gameObject); // 씬 전환 시에도 이 게임 오브젝트를 파괴하지 않도록 설정
-    }
-
-    public void ActivePauseButton()
-    {
-        if (!pauseOn) // 일시 중지 아니면
-        {
-            Time.timeScale = 0;
-            pausePanel.SetActive(true);
-        }
-        else
-        {
-            Time.timeScale = 1.0f;
-            pausePanel.SetActive(false);
-        }
-        pauseOn = !pauseOn; // 불 값 반전
-    }
-
-    public void ActiveResult()
-    {
-        pausePanel.SetActive(true);
-        pauseText.SetActive(false);
-        resultText.SetActive(true);
-        continueButton.SetActive(false);
-        finalScole.SetActive(true);
-    }
-
-    void Update()
-    {
-        if (PlayerController.IsDead == true)
-        {
-            Time.timeScale = 0;
-            ActiveResult();
-        }
-    }
-
-    public void RetryButton()
-    {
-        Time.timeScale = 1;
-        PlayerController.IsDead = false;
-        SceneManager.LoadScene("SampleScene"); // 현재 씬 다시 로드
-    }
-
-    public void QuitButton()
-    {
-        PlayerController.IsDead = false;
-        Time.timeScale = 1;
-        SceneManager.LoadScene("StartScene");
     }
 }
