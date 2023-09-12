@@ -30,11 +30,11 @@ public class UIMainHandler : MonoBehaviour
 
         if (retryButton != null)
         {
-            retryButton.onClick.AddListener(MainSceneManager.Instance.RetryButton);
+            retryButton.onClick.AddListener(GameManager.Instance.RetryButton);
         }
         if (quitButton != null)
         {
-            quitButton.onClick.AddListener(MainSceneManager.Instance.QuitButton);
+            quitButton.onClick.AddListener(GameManager.Instance.QuitButton);
         }
 
     }
