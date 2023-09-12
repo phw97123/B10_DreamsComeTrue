@@ -31,7 +31,7 @@ public class PlayerKillObjectMove : MonoBehaviour
                 int dir = 0;
                 while (dir == 0)
                 {
-                    dir = Random.RandomRange(-1, 2);
+                    dir = Random.Range(-1, 2);
                 }
                 _spead = 4 * dir;
                 _x = -3.45f * dir;
@@ -54,7 +54,7 @@ public class PlayerKillObjectMove : MonoBehaviour
         {
             _isSee = false;
             _isRight = true;
-            _sleepTime = Random.RandomRange(1.5f, 3f); //1.5 ~ 3 초 사이
+            _sleepTime = Random.Range(1.5f, 3f); //1.5 ~ 3 초 사이
         }
     }
 }

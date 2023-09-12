@@ -6,14 +6,15 @@ public class GameManager : MonoBehaviour
 {
     //캐릭터Animator
     public RuntimeAnimatorController[] characterAnimController;
-    private GameObject player;
+    public GameObject[] playerKillObjectPrefab; 
+    [SerializeField] public GameObject player;
     private PlayerMoveMent playerMovement;
     private PlayerController playerController; 
     private Animator playerAnimator;
+    
 
     private void Awake()
     {
-        player = GameObject.Find("Player");
         playerMovement = player.GetComponent<PlayerMoveMent>();
         playerController = player.GetComponent<PlayerController>(); 
 
@@ -30,33 +31,25 @@ public class GameManager : MonoBehaviour
                 case 0:
                     playerController.StunTime = 1.0f;
                     playerMovement.Speed = 1;
+                    Instantiate(playerKillObjectPrefab[0]); 
                     break;
                 case 1:
                     playerController.StunTime = 1.25f;
+                    Instantiate(playerKillObjectPrefab[1]);
                     break;
                 case 2:
                     playerController.StunTime = 0.75f;
+                    Instantiate(playerKillObjectPrefab[2]);
                     break;
                 case 3:
                     playerMovement.Speed = 1.25f;
+                    Instantiate(playerKillObjectPrefab[3]);
                     break;
                 default:
                     Debug.Log("캐릭터가 없습니다.");
                     break;
             }
         }
-    }
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

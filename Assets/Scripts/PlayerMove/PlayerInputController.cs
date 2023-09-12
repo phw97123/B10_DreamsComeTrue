@@ -28,4 +28,9 @@ public class PlayerInputController : PlayerController
             GetComponent<Animator>().SetBool("Move", false);
         }
     }
+
+    public void OnJump()
+    {
+        CallJumpEvent();
+    }
 }
