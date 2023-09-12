@@ -67,6 +67,14 @@ public class PlayerController : MonoBehaviour
         {
             SpeedItemOn();
         }
+        if (NotDeadItem.activeSelf)
+        {
+            NotDeadItemOn();
+        }
+        if (JumpItem.activeSelf)
+        {
+            JumpItemOn();
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -81,16 +89,21 @@ public class PlayerController : MonoBehaviour
                 Score++;
                 break;
             case "Battery":
+                AgainGetJumpItem();
                 break;
             case "ChatGpt":
+                AgainGetNotDeadItem();
                 break;
             case "CPU":
+                AgainGetSpeed();
                 break;
             case "Insecticide":
                 BugDieItemOn();
                 Debug.Log("나 실행했어");
                 break;
             case "NullImage":
+                BadItem();
+                Debug.Log("아이템 다 사라졌으...");
                 break;
             case "KillObject":
                 IsDead = true;
@@ -114,7 +127,7 @@ public class PlayerController : MonoBehaviour
         {
             BugDieItemCountTxt.text = BugDie.ToString();
             BugDieItem.SetActive(true);  //활성화 시켜주기
-            ItemsPosition(BugDieItem);   //위치 선정
+          //  ItemsPosition(BugDieItem);   //위치 선정
         }
         else  // 아이템 실행중 또 먹었다면
         {
@@ -166,7 +179,8 @@ public class PlayerController : MonoBehaviour
     {
         if (Speedtime == 5)  //처음이라면
         {
-            ItemsPosition(SpeedItem);
+            // ItemsPosition(SpeedItem);
+            Debug.Log("스피드 씨피유");
             SpeedItemOn();
         }
         else
@@ -196,7 +210,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Jumptime == 5)
         {
-
+            Debug.Log("점프 배터리");
             JumpItemOn();
         }
         else
@@ -211,7 +225,7 @@ public class PlayerController : MonoBehaviour
     {
         NotDeadItem.SetActive(true);
         NotDeadtime -= Time.deltaTime;
-        Debug.Log(NotDeadtime);
+       // Debug.Log(NotDeadtime);
         NotDeadItimeTxt.text = NotDeadtime.ToString();
 
 
@@ -227,7 +241,7 @@ public class PlayerController : MonoBehaviour
     {
         if (NotDeadtime == 5)
         {
-
+            Debug.Log("챗 지피티 무적");
             NotDeadItemOn();
         }
         else
@@ -239,6 +253,7 @@ public class PlayerController : MonoBehaviour
 
     public void BadItem()
     {
+        Debug.Log("다 초기화");
         if (BugDieItem.activeSelf)
         {
             BugDieItem.SetActive(false);
@@ -261,27 +276,27 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void ItemsPosition(GameObject _Item)
-    {
-        //리스트를 만들고 담고 셋엑티브가 true인지 알아야한다. 몇개인지 알고 그 위치에 맞게 포지션을 부여한다.
-        //실행시킬 때마다 하기
-        int count = 0;
-        for (int i = 0; i < Items.Count; i++)
-        {
-            if (Items[i].activeSelf)
-            {
-                count++;
+    //public void ItemsPosition(GameObject _Item)
+    //{
+    //    //리스트를 만들고 담고 셋엑티브가 true인지 알아야한다. 몇개인지 알고 그 위치에 맞게 포지션을 부여한다.
+    //    //실행시킬 때마다 하기
+    //    int count = 0;
+    //    for (int i = 0; i < Items.Count; i++)
+    //    {
+    //        if (Items[i].activeSelf)
+    //        {
+    //            count++;
 
-            }
-            //포지션 위치 리스트 만들어서 정렬하기
+    //        }
+    //        //포지션 위치 리스트 만들어서 정렬하기
 
-        }
-        if (count == 1)
-            _Item.transform.localPosition = new Vector3(-20, 0, 0);
-        else if (count == 2)
-            _Item.transform.localPosition = new Vector3(-18, 0, 0);
-        Debug.Log(_Item.transform.localPosition);
-    }
+    //    }
+    //    if (count == 1)
+    //        _Item.transform.localPosition = new Vector3(-20, 0, 0);
+    //    else if (count == 2)
+    //        _Item.transform.localPosition = new Vector3(-18, 0, 0);
+    //  //  Debug.Log(_Item.transform.localPosition);
+    //}
     //IEnumerator enumerator()
     //{
     //    float time = 0;
