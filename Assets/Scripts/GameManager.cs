@@ -1,16 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    //캐릭터Animator
+    
     public RuntimeAnimatorController[] characterAnimController;
     public GameObject[] playerKillObjectPrefab; 
     [SerializeField] public GameObject player;
     private PlayerMoveMent playerMovement;
     private PlayerController playerController; 
     private Animator playerAnimator;
+    public static GameManager Instance;
+    private UIMainHandler uiMainHandler;
+
+    public const string UIMAINHANDLER_NAME = "uiMainHandler";
+    public const string SAMPLESCENE = "SampleScene";
     
 
     private void Awake()
@@ -18,14 +25,14 @@ public class GameManager : MonoBehaviour
         playerMovement = player.GetComponent<PlayerMoveMent>();
         playerController = player.GetComponent<PlayerController>(); 
 
-        //캐릭터 정보
+        
         if (PlayerPrefs.HasKey("CharacterNumber"))
         {
             playerAnimator = player.GetComponent<Animator>();
-            //게임 실행중에 애니메이터 컨트롤러를 동적으로 변경하고 제어하는데 사용
+            
             playerAnimator.runtimeAnimatorController = characterAnimController[PlayerPrefs.GetInt("CharacterNumber")];
 
-            //캐릭터 능력치 조정
+            
             switch (PlayerPrefs.GetInt("CharacterNumber"))
             {
                 case 0:
@@ -46,10 +53,52 @@ public class GameManager : MonoBehaviour
                     Instantiate(playerKillObjectPrefab[3]);
                     break;
                 default:
-                    Debug.Log("캐릭터가 없습니다.");
+                    
                     break;
             }
         }
 
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+
+    }
+
+    void Start()
+    {
+        uiMainHandler = UIManager.Instance.GetUIScript<UIMainHandler>(UIMAINHANDLER_NAME);
+    }
+
+    void Update()
+    {
+        if (PlayerController.IsDead == true)
+        {
+            Time.timeScale = 0;
+            uiMainHandler.ActiveResult();
+        }
+    }
+
+    public void RetryButton()
+    {
+        Time.timeScale = 1;
+        PlayerController.IsDead = false;
+        SceneManager.LoadScene("SampleScene");
+    }
+
+    public void QuitButton()
+    {
+        PlayerController.IsDead = false;
+        Time.timeScale = 1;
+        SceneManager.LoadScene("StartScene");
     }
 }
