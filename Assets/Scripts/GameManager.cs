@@ -92,6 +92,8 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         PlayerController.IsDead = false;
+
+        UIManager.Instance.RemoveUIScript(UIMAINHANDLER_NAME); 
         SceneManager.LoadScene("SampleScene");
     }
 

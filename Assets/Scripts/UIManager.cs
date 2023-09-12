@@ -41,6 +41,19 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void RemoveUIScript(string scriptName)
+    {
+        if (uiScripts.ContainsKey(scriptName))
+        {
+            uiScripts.Remove(scriptName);
+        }
+        else
+        {
+            Debug.LogWarning("해당 이름의 UI 스크립트를 찾을 수 없어 제거할 수 없습니다: " + scriptName);
+        }
+    }
+
+
     void Awake()
     {
         if (Instance == null) //UIManager에 인스턴스가 없으면 현재 인스턴스
