@@ -19,16 +19,12 @@ public class SpawnPrefabs : MonoBehaviour
         PullObject = new GameObject[500];
         for (int i = 0; i < PullObject.Length; i++)
         {
-            int index = Random.Range(0, 101);
-            if (index >= 35)
-            {
-                index = 0;
-            }
-            else if (index >= 5)
+            int index = 0;
+            if (i >= 380)
             {
                 index = 1;
             }
-            else
+            else if (i >= 480)
             {
                 index = Random.Range(2, 7);
             }
