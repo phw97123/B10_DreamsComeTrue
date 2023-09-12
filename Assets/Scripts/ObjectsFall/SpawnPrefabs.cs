@@ -23,7 +23,7 @@ public class SpawnPrefabs : MonoBehaviour
             if (i >= 200)
             {
                 index = Random.Range(2, 7);
-                index = 1;
+                
             }
             else if (i >= 100)
             {
