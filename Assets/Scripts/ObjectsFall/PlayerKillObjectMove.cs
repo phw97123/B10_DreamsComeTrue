@@ -57,4 +57,12 @@ public class PlayerKillObjectMove : MonoBehaviour
             _sleepTime = Random.Range(1.5f, 3f); //1.5 ~ 3 √  ªÁ¿Ã
         }
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            _spead *= -1;
+        }
+    }
 }
