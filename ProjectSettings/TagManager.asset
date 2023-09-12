@@ -7,7 +7,7 @@ TagManager:
   - FixBug
   - BadBug
   - RecoveryItem
-  - Pesticides
+  - Insecticide
   layers:
   - Default
   - TransparentFX
