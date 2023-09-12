@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        bool i = true;
+        bool isInvincibility = true;
         switch (other.gameObject.tag)
         {
             case "BadBug":
@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour
                 {
                     NotDeadtime = 5;
                     NotDeadItem.SetActive(false);
-                    i = false;
+                    isInvincibility = false;
                 }
                 else
                 {
@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour
                 }
                 break;
         }
-        if (i)
+        if (isInvincibility)
         {
             other.gameObject.SetActive(false);
         }
