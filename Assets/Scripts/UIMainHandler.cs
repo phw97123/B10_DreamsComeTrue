@@ -25,6 +25,21 @@ public class UIMainHandler : MonoBehaviour
         pausePanel.SetActive(false);
     }
 
+    void Start()
+    {
+
+        if (retryButton != null)
+        {
+            retryButton.onClick.AddListener(MainSceneManager.Instance.RetryButton);
+        }
+        if (quitButton != null)
+        {
+            quitButton.onClick.AddListener(MainSceneManager.Instance.QuitButton);
+        }
+
+    }
+
+
     public void ActivePauseButton()
     {
         if (!pauseOn)
@@ -49,26 +64,4 @@ public class UIMainHandler : MonoBehaviour
         finalScore.gameObject.SetActive(true);
     }
 
-    void Update()
-    {
-        if(PlayerController.IsDead == true)
-        {
-            Time.timeScale = 0;
-            ActiveResult();
-        }
-    }
-
-    public void RetryButton()
-    {
-        Time.timeScale = 1;
-        PlayerController.IsDead = false;
-        SceneManager.LoadScene("SampleScene");
-    }
-
-    public void QuitButton()
-    {
-        PlayerController.IsDead = false;
-        Time.timeScale = 1;
-        SceneManager.LoadScene("StartScene");
-    }
 }

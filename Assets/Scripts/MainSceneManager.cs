@@ -34,5 +34,28 @@ public class MainSceneManager : MonoBehaviour
     {
         uiMainHandler = UIManager.Instance.GetUIScript<UIMainHandler>(UIMAINHANDLER_NANE);
     }
+
+    void Update()
+    {
+        if (PlayerController.IsDead == true)
+        {
+            Time.timeScale = 0;
+            uiMainHandler.ActiveResult();
+        }
+    }
+
+    public void RetryButton()
+    {
+        Time.timeScale = 1;
+        PlayerController.IsDead = false;
+        SceneManager.LoadScene("SampleScene");
+    }
+
+    public void QuitButton()
+    {
+        PlayerController.IsDead = false;
+        Time.timeScale = 1;
+        SceneManager.LoadScene("StartScene");
+    }
 }
 
