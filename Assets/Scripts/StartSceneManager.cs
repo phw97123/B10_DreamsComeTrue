@@ -92,7 +92,7 @@ public class StartSceneManager : MonoBehaviour
                 break;
 
             case CharacterName.JBJ:
-                currentPosition.y = -2.4f;
+                currentPosition.y = -3.2f;
                 uiStartHandler.SetCharacterInfo("JBJ", "크기 Down, 마비시간 1.25", "FIFA를 좋아합니다.");
                 break;
 
