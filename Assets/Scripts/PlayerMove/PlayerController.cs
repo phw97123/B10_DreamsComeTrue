@@ -109,7 +109,15 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("아이템 다 사라졌으...");
                 break;
             case "KillObject":
-                IsDead = true;
+                if (NotDeadItem.activeSelf)
+                {
+                    NotDeadtime = 5;
+                    NotDeadItem.SetActive(false);
+                }
+                else
+                {
+                    IsDead = true;
+                }
                 break;
         }
         other.gameObject.SetActive(false);
@@ -165,7 +173,7 @@ public class PlayerController : MonoBehaviour
     public void SpeedItemOn()
     {//지속적으로 할 수 있는 메서드 찾아보기
         SpeedItem.SetActive(true);
-        playerMovement.Speed = 4.8f;
+        playerMovement.Speed = 2.5f;
         Speedtime -= Time.deltaTime;
         // Debug.Log(Speedtime);
         SpeedItimeTxt.text = Speedtime.ToString("N2");
@@ -199,7 +207,7 @@ public class PlayerController : MonoBehaviour
     public void JumpItemOn()
     {//지속적으로 할 수 있는 메서드 찾아보기
         JumpItem.SetActive(true);
-        playerMovement.JumpForce = 14;
+        playerMovement.JumpForce = 10;
         Jumptime -= Time.deltaTime;
         //Debug.Log(Jumptime);
         JumpItimeTxt.text = Jumptime.ToString("N2");
