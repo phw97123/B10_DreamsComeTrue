@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class PlayerController : MonoBehaviour
 {
     public event Action<Vector2> OnMoveEvent;
     public event Action onJumpEvent;
 
-    public static int Score = 0;
+    public static int Score;
     public static bool IsDead = false;
     public float StunTime = 1;
     private bool _isStun = false;
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        Score = 0;
         playerMovement = player.GetComponent<PlayerMoveMent>();
         BugDie = 16;
         Speedtime = 5f;
@@ -82,6 +84,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        bool i = true;
         switch (other.gameObject.tag)
         {
             case "BadBug":
@@ -113,6 +116,7 @@ public class PlayerController : MonoBehaviour
                 {
                     NotDeadtime = 5;
                     NotDeadItem.SetActive(false);
+                    i = false;
                 }
                 else
                 {
@@ -120,7 +124,10 @@ public class PlayerController : MonoBehaviour
                 }
                 break;
         }
-        other.gameObject.SetActive(false);
+        if (i)
+        {
+            other.gameObject.SetActive(false);
+        }
     }
 
     private void OutStun()
