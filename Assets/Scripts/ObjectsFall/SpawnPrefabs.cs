@@ -33,6 +33,19 @@ public class SpawnPrefabs : MonoBehaviour
             PullObject[i] = gameObject;
             gameObject.SetActive(false);
         }
+        PullObject = ShuffleArray(PullObject);
+    }
+    public static T[] ShuffleArray<T>(T[] array)
+    {
+        for (int i = 0; i < array.Length - 1; i++)
+        {
+            int randomIndex = Random.Range(i, array.Length);
+            T tempItem = array[randomIndex];
+            array[randomIndex] = array[i];
+            array[i] = tempItem;
+        }
+
+        return array;
     }
 
     // Update is called once per frame
