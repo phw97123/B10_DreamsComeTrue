@@ -95,16 +95,13 @@ public class GameManager : MonoBehaviour
         PlayerController.IsDead = false;
         UIManager.Instance.RemoveUIScript(UIMAINHANDLER_NAME); 
         SceneManager.LoadScene("SampleScene");
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.button);
     }
 
     public void QuitButton()
     {
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.button);
         PlayerController.IsDead = false;
         Time.timeScale = 1;
         UIManager.Instance.RemoveUIScript(UIMAINHANDLER_NAME);
         SceneManager.LoadScene("StartScene");
-        
     }
 }
