@@ -17,7 +17,7 @@ public class PlayerMoveMent : MonoBehaviour
     public float JumpForce = 7; //점프하는 힘 
 
     //땅에 닿았는지 
-    bool _isGrounded = true; 
+    bool isGrounded = true; 
 
     private void Awake()
     {
@@ -45,10 +45,10 @@ public class PlayerMoveMent : MonoBehaviour
 
     private void Jump()
     {
-        if (_isGrounded) // 땅에 닿아 있다면 
+        if (isGrounded) // 땅에 닿아 있다면 
         {
             _rigidbody.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse); // 위쪽 방향 * 점프할 힘, 짧고 강한 충격으로 힘을 가함
-            _isGrounded = false; //땅에 닿아있지 않음
+            isGrounded = false; //땅에 닿아있지 않음
             _anim.SetBool("IsJump", true); 
         }
     }
@@ -58,7 +58,7 @@ public class PlayerMoveMent : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Ground"))
         {
-            _isGrounded = true;
+            isGrounded = true;
             _anim.SetBool("IsJump", false);
         }
     }
