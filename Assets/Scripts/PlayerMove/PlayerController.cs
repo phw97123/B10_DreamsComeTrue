@@ -164,7 +164,7 @@ public class PlayerController : MonoBehaviour
         SpeedItem.SetActive(true);
         Speedtime -= Time.deltaTime;
         // Debug.Log(Speedtime);
-        SpeedItimeTxt.text = Speedtime.ToString();
+        SpeedItimeTxt.text = Speedtime.ToString("N2");
 
 
         //플레이어의 스피드 증가시키기 메서드만 추가하면 굿굿
@@ -194,8 +194,8 @@ public class PlayerController : MonoBehaviour
     {//지속적으로 할 수 있는 메서드 찾아보기
         JumpItem.SetActive(true);
         Jumptime -= Time.deltaTime;
-        Debug.Log(Jumptime);
-        JumpItimeTxt.text = Jumptime.ToString();
+        //Debug.Log(Jumptime);
+        JumpItimeTxt.text = Jumptime.ToString("N2");
 
 
         //플레이어의 점프 증가시키기 메서드만 추가하면 굿굿
@@ -226,7 +226,7 @@ public class PlayerController : MonoBehaviour
         NotDeadItem.SetActive(true);
         NotDeadtime -= Time.deltaTime;
        // Debug.Log(NotDeadtime);
-        NotDeadItimeTxt.text = NotDeadtime.ToString();
+        NotDeadItimeTxt.text = NotDeadtime.ToString("N2");
 
 
         //플레이어의 점프 증가시키기 메서드만 추가하면 굿굿
