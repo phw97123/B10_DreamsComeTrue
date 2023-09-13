@@ -21,7 +21,7 @@ public class HUD : MonoBehaviour
         switch (type)
         { 
             case InfoType.Score:
-                myText.text = string.Format("Score: {0:F0}", PlayerController.Score);
+                myText.text = string.Format("{0:F0} 개의 버그 해결!", PlayerController.Score);
                 break;
         }
     }
