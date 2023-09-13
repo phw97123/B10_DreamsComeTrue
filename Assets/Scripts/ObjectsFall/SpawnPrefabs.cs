@@ -10,7 +10,7 @@ public class SpawnPrefabs : MonoBehaviour
     private float randomX = 2.7f;
     private float Y = 3.15f;
     private float time = 0;
-    private int _spawnNum = 3;
+    public static int _spawnNum = 3;
     private int _count = 0;
     private int _pivot = 0;
 
@@ -53,7 +53,7 @@ public class SpawnPrefabs : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        if (time > 0.5f)
+        if (time > 0.7f)
         {
             SpawnPrefab(_spawnNum);
         }
@@ -73,7 +73,7 @@ public class SpawnPrefabs : MonoBehaviour
         if (_count > 30)
         {
             _count = 0;
-            spawnNum++;
+         //  spawnNum++;
         }
         time = 0;
     }

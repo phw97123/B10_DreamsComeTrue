@@ -18,6 +18,12 @@ public class GameManager : MonoBehaviour
     public float time;
     private BoxCollider2D playerCollider;
     private bool isRunOnce;
+    public float killTime; //자동차 난이도 주시시간
+    public float fallTime; // 떨어지는 오브젝트 주기시간
+    public float numberTime;//떨어지는 오브젝트 수 주기시간
+    public float spawnTime; // 스폰하는 주기
+    public int fallMaxSpeed;//주기 최대스피드
+    public int fallMiniSpeed;//주기 최소스피드
 
     public const string UIMAINHANDLER_NAME = "uiMainHandler";
     public const string SAMPLESCENE = "SampleScene";
@@ -25,6 +31,12 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        fallMaxSpeed = 1;
+        fallMiniSpeed = 1;
+        
+        SpawnPrefabs._spawnNum = 3;
+        //ObjectsFall.speed = 2;
+        PlayerKillObjectMove.stageSpeed = 1;
         isRunOnce = true;
         playerMovement = player.GetComponent<PlayerMoveMent>();
         playerController = player.GetComponent<PlayerController>();
@@ -101,6 +113,7 @@ public class GameManager : MonoBehaviour
             AudioManager.Instance.PlaySfx(AudioManager.Sfx.gameover);
             isRunOnce = false;
         }
+       // LevelUp();
         Stage();
     }
 
@@ -153,5 +166,37 @@ public class GameManager : MonoBehaviour
             ObjectsFall.speed = Random.Range(11, 15);
             PlayerKillObjectMove.stageSpeed = 8;
         }
+    }
+   
+
+    public void LevelUp()
+    {
+        //int levelTime = 0;
+        time += Time.deltaTime;
+        killTime += Time.deltaTime; //자동차 난이도 주시시간
+        fallTime += Time.deltaTime; // 떨어지는 오브젝트 주기시간
+        numberTime += Time.deltaTime;//
+        spawnTime += Time.deltaTime;
+        
+
+        if (killTime > 6)   //플레이어 킬 오브젝트 속도주기
+        {
+           
+            PlayerKillObjectMove.stageSpeed += 1;
+            Debug.Log("나 실행했음!");
+            killTime = 0;
+
+        }
+        if (numberTime > 8)   //생성숫자 늘리는 주기
+        {
+            SpawnPrefabs._spawnNum += 1;
+            numberTime = 0;
+        }
+        if (fallTime > 5)  //떨어지는 속도 높이는 주기
+        {
+            fallMaxSpeed += 1;
+            fallTime = 0;
+        }
+      
     }
 }
