@@ -10,7 +10,6 @@ public class HUD : MonoBehaviour
 
     Text myText;
     
-
     void Awake()
     {
         myText = GetComponent<Text>();

@@ -83,7 +83,6 @@ public class StartSceneManager : MonoBehaviour
             //배열의 길이를 나눈 나머지를 사용함으로써 배열의 길이르 초과하지 않게 처리 
             spriteCount = (spriteCount + 1) % characterSprite.Length;
             AudioManager.Instance.PlaySfx(AudioManager.Sfx.button);
-
         }
 
         characterName = (CharacterName)spriteCount;

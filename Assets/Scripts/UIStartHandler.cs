@@ -26,7 +26,6 @@ public class UIStartHandler : MonoBehaviour
 
     private void Awake()
     {
-        //Debug.Log("생성");
         //UIManager의 Dictionary에 추가 
         UIManager.Instance.AddUIScript(UIHANDLER_NAME, this);
         AudioManager.Instance.PlayIntro(true); 
@@ -88,7 +87,6 @@ public class UIStartHandler : MonoBehaviour
         abilityText.gameObject.SetActive(false);
         nameText.gameObject.SetActive(false);
         AudioManager.Instance.PlaySfx(AudioManager.Sfx.button);
-
     }
 
     private void CloseHelp()

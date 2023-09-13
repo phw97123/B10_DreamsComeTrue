@@ -12,13 +12,12 @@ public class PlayerKillObjectMove : MonoBehaviour
     private float _time = 0;
     float _sleepTime = 5;
     public static int stageSpeed;
-    // Start is called before the first frame update
+
     void Start()
     {
         stageSpeed = 1;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (_isSee)

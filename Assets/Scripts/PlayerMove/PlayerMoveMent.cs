@@ -60,9 +60,6 @@ public class PlayerMoveMent : MonoBehaviour
 
     private void ApplyMovement(Vector2 direction)
     {
-        //direction = direction * 3 * Speed;
-        //_rigidbody.velocity = direction;
-
         //좌우 방향의 속조를 설정하고, 상하 방향의 속도는 이전과 동일하게 유지하여 상하 방향의 속도가 변경되지 않게 설정 
         _rigidbody.velocity = new Vector2(direction.x *3 *Speed, _rigidbody.velocity.y); 
     }
