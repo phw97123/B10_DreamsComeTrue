@@ -2175,6 +2175,12 @@ MonoBehaviour:
   - {fileID: 5050420959051726963, guid: 15fb71fecdee0994c804e6a7e20b89bc, type: 3}
   player: {fileID: 1566745586}
   time: 0
+  killTime: 0
+  fallTime: 0
+  numberTime: 0
+  spawnTime: 0
+  fallMaxSpeed: 0
+  fallMiniSpeed: 0
 --- !u!4 &783464787
 Transform:
   m_ObjectHideFlags: 0

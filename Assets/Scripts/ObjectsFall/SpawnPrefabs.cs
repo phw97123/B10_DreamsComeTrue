@@ -10,12 +10,14 @@ public class SpawnPrefabs : MonoBehaviour
     private float randomX = 2.7f;
     private float Y = 3.15f;
     private float time = 0;
-    private int _spawnNum = 3;
+    public static int _spawnNum;
     private int _count = 0;
     private int _pivot = 0;
 
     void Start()
     {
+        
+        _spawnNum = 2;
         PullObject = new GameObject[500];
         for (int i = 0; i < PullObject.Length; i++)
         {
@@ -53,7 +55,7 @@ public class SpawnPrefabs : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        if (time > 0.5f)
+        if (time > 0.8f)
         {
             SpawnPrefab(_spawnNum);
         }
