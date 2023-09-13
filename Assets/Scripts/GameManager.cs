@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0;
             uiMainHandler.ActiveResult();
-            AudioManager.instance.PlayBgm(false);
+            AudioManager.Instance.PlayBgm(false);
         }
     }
 
@@ -96,6 +96,7 @@ public class GameManager : MonoBehaviour
 
         UIManager.Instance.RemoveUIScript(UIMAINHANDLER_NAME); 
         SceneManager.LoadScene("SampleScene");
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.button);
     }
 
     public void QuitButton()
@@ -104,5 +105,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         UIManager.Instance.RemoveUIScript(UIMAINHANDLER_NAME);
         SceneManager.LoadScene("StartScene");
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.button);
     }
 }
