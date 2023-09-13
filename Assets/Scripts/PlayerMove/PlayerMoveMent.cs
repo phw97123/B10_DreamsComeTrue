@@ -1,9 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
-using UnityEngine.InputSystem.XR.Haptics;
 
 public class PlayerMoveMent : MonoBehaviour
 {
@@ -56,7 +51,7 @@ public class PlayerMoveMent : MonoBehaviour
     //Player가 Ground 태그를 가진 오브젝트와 충돌 했을 때 true
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("KillObject"))
         {
             isGrounded = true;
             _anim.SetBool("IsJump", false);
