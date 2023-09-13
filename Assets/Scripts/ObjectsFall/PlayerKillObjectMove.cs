@@ -38,7 +38,7 @@ public class PlayerKillObjectMove : MonoBehaviour
                 _x = -3.45f * dir;
                 _isRight = false;
             }
-            transform.position = new Vector3(_x, -4f, 1);
+            transform.position = new Vector3(_x, -4.35f, 1);
             _time += Time.deltaTime;
             if (_sleepTime < _time)
             {
