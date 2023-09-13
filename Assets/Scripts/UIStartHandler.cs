@@ -64,8 +64,6 @@ public class UIStartHandler : MonoBehaviour
         {
             rightButton.onClick.AddListener(() => StartSceneManager.Instance.ShowCharacter(false));
         }
-
-  
     }
 
     void Update()
@@ -87,6 +85,8 @@ public class UIStartHandler : MonoBehaviour
         helpPanel.SetActive(true);
         leftButton.gameObject.SetActive(false);
         rightButton.gameObject.SetActive(false);
+        abilityText.gameObject.SetActive(false);
+        nameText.gameObject.SetActive(false);
         AudioManager.Instance.PlaySfx(AudioManager.Sfx.button);
 
     }
@@ -96,8 +96,9 @@ public class UIStartHandler : MonoBehaviour
         helpPanel.SetActive(false);
         leftButton.gameObject.SetActive(true);
         rightButton.gameObject.SetActive(true);
+        abilityText.gameObject.SetActive(true);
+        nameText.gameObject.SetActive(true); 
         AudioManager.Instance.PlaySfx(AudioManager.Sfx.button);
-
     }
 
     public void SetCharacterInfo(string characterName, string characterAbility, string characterExplanation)
