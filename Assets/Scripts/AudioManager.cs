@@ -23,7 +23,7 @@ public class AudioManager : MonoBehaviour
     AudioSource[] sfxPlayers;
     int channelIndex;
 
-    public enum Sfx { StartScene, jump, button, gameover = 4, PS5, FIFA, Wine, SleepSound }
+    public enum Sfx { StartScene, jump, button, gameover = 4, PS5, FIFA, Wine, SleepSound, Typing }
 
     void Awake()
     {
