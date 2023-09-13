@@ -2019,7 +2019,7 @@ MonoBehaviour:
   - "\uD76C\uC6D0\uC774\uB294 \uACB0\uAD6D \uB0A8\uC740 \uBC84\uADF8\uB97C \uD574\uACB0\uD558\uC9C0
     \uBABB\uD558\uACE0 \uD50C\uC2A45\uB97C \uCF30\uB2E4..."
   - "\uBC94\uC900\uC774\uB294 \uAC8C\uC784\uC758 \uC720\uD639\uC744 \uCC38\uC9C0
-    \uBABB\uD558\uACE0 \uACB0\uAD6C \uD53C\uD30C\uB97C \uD0A4\uACE0\uB9C8\uB294\uB370..."
+    \uBABB\uD558\uACE0 \uACB0\uAD6D \uD53C\uD30C\uB97C \uD0A4\uACE0\uB9C8\uB294\uB370..."
   - "\uC5B4\uC9C4\uC774\uB294 \uC640\uC778\uC758 \uD5A5\uC744 \uCC38\uC9C0 \uBABB\uD558\uACE0
     \uACB0\uAD6D \uC640\uC778\uC744 \uB9C8\uC2DC\uACE0 \uB9C8\uB294\uB370"
   - "\uC7AC\uD6C8\uC774\uB294 \uC7A0\uC758 \uC720\uD639\uC744 \uC774\uAE30\uC9C0\uBABB\uD558\uACE0 
@@ -2188,6 +2188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 874e54cc005a37144b6d359c6be7cf0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1566745586}
   characterAnimController:
   - {fileID: 22100000, guid: 5c80e77c3fbc44146857a258d96af6a8, type: 2}
   - {fileID: 9100000, guid: a7fbd69e994a5474baba38760881b702, type: 2}
@@ -2198,7 +2199,6 @@ MonoBehaviour:
   - {fileID: 9011485827965545299, guid: c68dd52928bbbc74580f567a35b3306f, type: 3}
   - {fileID: 7336030201188967416, guid: 11a2cd4c0e65c5542b07ca42f42ecce8, type: 3}
   - {fileID: 5050420959051726963, guid: 15fb71fecdee0994c804e6a7e20b89bc, type: 3}
-  player: {fileID: 1566745586}
   time: 0
   killTime: 0
   fallTime: 0
