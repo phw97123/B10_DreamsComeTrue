@@ -17,6 +17,8 @@ public class SpawnPrefabs : MonoBehaviour
     
     void Start()
     {
+        spawntime = 0.5f;
+        _spawnNum = 3;
         PullObject = new GameObject[500];
         for (int i = 0; i < PullObject.Length; i++)
         {

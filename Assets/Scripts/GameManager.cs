@@ -191,7 +191,7 @@ public class GameManager : MonoBehaviour
             killTime = 0;
 
         }
-        if (numberTime > 6)   //생성숫자 늘리는 주기
+        if (numberTime > 8)   //생성숫자 늘리는 주기
         {
             SpawnPrefabs._spawnNum += 1;
             numberTime = 0;
