@@ -11,7 +11,7 @@ public class SpawnPrefabs : MonoBehaviour
     private float Y = 3.15f;
     private float time = 0;
     public static int _spawnNum ;
-    public static float leveltime;
+    public static float spawntime;
     private int _count = 0;
     private int _pivot = 0;
     
@@ -54,7 +54,7 @@ public class SpawnPrefabs : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        if (time > 0.5)//leveltime -> 얘를 점점 감소 시키는 것이다. 스폰을 얼마나 일정주기로 할건가
+        if (time > 1f)//spawntime -> 얘를 점점 감소 시키는 것이다. 스폰을 얼마나 일정주기로 할건가
         {
             SpawnPrefab(_spawnNum);
         }
@@ -74,7 +74,7 @@ public class SpawnPrefabs : MonoBehaviour
         if (_count > 30)
         {
             _count = 0;
-            spawnNum++;
+           // spawnNum++;
         }
         time = 0;
     }
