@@ -10,10 +10,11 @@ public class SpawnPrefabs : MonoBehaviour
     private float randomX = 2.7f;
     private float Y = 3.15f;
     private float time = 0;
-    private int _spawnNum = 3;
+    public static int _spawnNum ;
+    public static float leveltime;
     private int _count = 0;
     private int _pivot = 0;
-
+    
     void Start()
     {
         PullObject = new GameObject[500];
@@ -53,7 +54,7 @@ public class SpawnPrefabs : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        if (time > 0.5f)
+        if (time > 0.5)//leveltime -> 얘를 점점 감소 시키는 것이다. 스폰을 얼마나 일정주기로 할건가
         {
             SpawnPrefab(_spawnNum);
         }

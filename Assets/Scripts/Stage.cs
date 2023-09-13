@@ -12,14 +12,14 @@ public class Stage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.time > 5 && GameManager.Instance.time < 7)
+        if (GameManager.Instance.time > 15 && GameManager.Instance.time < 16)
         {
             
             GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f - time / _fadeTime);
-            transform.localScale = Vector3.one * (1 + time);
+           // transform.localScale = Vector3.one * (1 + time);
                 
         }
-        else if (GameManager.Instance.time > 10 && GameManager.Instance.time < 12)
+        else if (GameManager.Instance.time > 30 && GameManager.Instance.time < 31)
         {
 
             
@@ -28,7 +28,7 @@ public class Stage : MonoBehaviour
         else
         {
             resetAnim();
-            resetAnimSize();
+            
             //this.gameObject.SetActive(false);        
         }
         time += Time.deltaTime;
@@ -37,7 +37,9 @@ public class Stage : MonoBehaviour
     public void resetAnim()
     {
         GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+        transform.localScale = Vector3.one;
         this.gameObject.SetActive(true);
+        time = 0;
     }
     public void resetAnimSize()
     {

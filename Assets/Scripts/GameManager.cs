@@ -16,13 +16,18 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     private UIMainHandler uiMainHandler;
     public float time;
-
+    int i;
     public const string UIMAINHANDLER_NAME = "uiMainHandler";
     public const string SAMPLESCENE = "SampleScene";
     
 
     private void Awake()
     {
+        i = 1;
+        SpawnPrefabs.leveltime = 2;
+        SpawnPrefabs._spawnNum = 3;
+        ObjectsFall.speed = 2;
+        PlayerKillObjectMove.stageSpeed = 1;
         time = 0;
         playerMovement = player.GetComponent<PlayerMoveMent>();
         playerController = player.GetComponent<PlayerController>(); 
@@ -89,7 +94,8 @@ public class GameManager : MonoBehaviour
             uiMainHandler.ActiveResult();
             AudioManager.Instance.PlayBgm(false);
         }
-        Stage();
+        //Stage();
+        LevelUp();
     }
 
     public void RetryButton()
@@ -120,7 +126,7 @@ public class GameManager : MonoBehaviour
             ObjectsFall.speed = Random.Range(2, 8);
             PlayerKillObjectMove.stageSpeed = 2;
         }
-        else if (15<time &&time < 30)
+        else if (15 < time && time < 30)
         {
             Debug.Log("Stage 2");
             ObjectsFall.speed = Random.Range(4, 10);
@@ -138,5 +144,24 @@ public class GameManager : MonoBehaviour
             ObjectsFall.speed = Random.Range(11, 15);
             PlayerKillObjectMove.stageSpeed = 8;
         }
+    }
+
+    public void LevelUp()
+    {
+        //int levelTime = 0;
+        time += Time.deltaTime;
+        ObjectsFall.speed = Random.Range(2, 8);
+        if (time > 4)
+        {
+            SpawnPrefabs._spawnNum += 1;
+            i += 1;
+            PlayerKillObjectMove.stageSpeed += 1;
+            Debug.Log("나 실행했음!");
+            time = 0;
+
+        }
+        // ObjectsFall.speed = (Random.Range(1, 4));
+        // 시간에따라 난이도 증가
+        // 시간에 따라 벌레의 종류가 증가 
     }
 }
