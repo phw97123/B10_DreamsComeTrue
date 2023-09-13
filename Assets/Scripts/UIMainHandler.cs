@@ -16,6 +16,7 @@ public class UIMainHandler : MonoBehaviour
     [SerializeField] private Button quitButton;
     [SerializeField] private Button continueButton;
     [SerializeField] private Text finalScore;
+    [SerializeField] private GameObject pauseButton;
 
     public const string UIMAINHANDLER_NANE = "uiMainHandler";
 
@@ -24,6 +25,8 @@ public class UIMainHandler : MonoBehaviour
         UIManager.Instance.AddUIScript(UIMAINHANDLER_NANE, this);
         pausePanel.SetActive(false);
         AudioManager.Instance.PlayBgm(true);
+        pauseButton.SetActive(true);
+        
     }
 
     void Start()
@@ -44,7 +47,7 @@ public class UIMainHandler : MonoBehaviour
     public void ActivePauseButton()
     {
         AudioManager.Instance.PlaySfx(AudioManager.Sfx.button);
-
+        pauseButton.SetActive(false);
         if (!pauseOn)
         {
             Time.timeScale = 0;
