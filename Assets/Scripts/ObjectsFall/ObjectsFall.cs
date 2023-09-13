@@ -5,14 +5,13 @@ using UnityEngine.InputSystem.XR;
 
 public class ObjectsFall : MonoBehaviour
 {
-    public float speed;
+    public static float speed;
     private Rigidbody2D _rigidbody;
     private float x;
     private float y;
 
     private void Awake()
-    {
-        speed = Random.Range(4, 10);
+    {    
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 

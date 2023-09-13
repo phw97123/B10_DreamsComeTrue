@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     private Animator playerAnimator;
     public static GameManager Instance;
     private UIMainHandler uiMainHandler;
-
+    public float time;
     private BoxCollider2D playerCollider;
 
     public const string UIMAINHANDLER_NAME = "uiMainHandler";
@@ -103,6 +103,7 @@ public class GameManager : MonoBehaviour
                 PlayerController.IsDead = false;
             }
         }
+        Stage();
     }
 
     public void RetryButton()
@@ -124,5 +125,35 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.RemoveUIScript(UIMAINHANDLER_NAME);
         SceneManager.LoadScene("StartScene");
         AudioManager.Instance.PlaySfx(AudioManager.Sfx.button);
+    }
+
+    public void Stage()
+    {
+        time += Time.deltaTime;
+        //Debug.Log(time);
+        if (time < 15)
+        {
+           // Debug.Log("Stage 1");
+            ObjectsFall.speed = Random.Range(2, 8);
+            PlayerKillObjectMove.stageSpeed = 2;
+        }
+        else if (15 < time && time < 30)
+        {
+           // Debug.Log("Stage 2");
+            ObjectsFall.speed = Random.Range(4, 10);
+            PlayerKillObjectMove.stageSpeed = 4;
+        }
+        else if (30 < time && time < 45)
+        {
+            //Debug.Log("Stage 3");
+            ObjectsFall.speed = Random.Range(6, 12);
+            PlayerKillObjectMove.stageSpeed = 6;
+        }
+        else
+        {
+           // Debug.Log("Stage 4");
+            ObjectsFall.speed = Random.Range(11, 15);
+            PlayerKillObjectMove.stageSpeed = 8;
+        }
     }
 }

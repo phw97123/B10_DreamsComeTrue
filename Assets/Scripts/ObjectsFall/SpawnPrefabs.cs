@@ -20,12 +20,12 @@ public class SpawnPrefabs : MonoBehaviour
         for (int i = 0; i < PullObject.Length; i++)
         {
             int index = 0;
-            if (i >= 200)
+            if (i >= 400)
             {
                 index = Random.Range(2, 7);
                 
             }
-            else if (i >= 100)
+            else if (i >= 300)
             {
                 index = 1; 
             }
