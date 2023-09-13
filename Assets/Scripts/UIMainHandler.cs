@@ -59,6 +59,7 @@ public class UIMainHandler : MonoBehaviour
             pausePanel.SetActive(false);
         }
         pauseOn = !pauseOn;
+        pauseButton.SetActive(true);
     }
 
     public void ActiveResult()
