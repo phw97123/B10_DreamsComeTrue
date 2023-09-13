@@ -85,6 +85,7 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0;
             uiMainHandler.ActiveResult();
+            AudioManager.instance.PlayBgm(false);
         }
     }
 
