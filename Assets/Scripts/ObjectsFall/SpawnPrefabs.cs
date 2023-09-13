@@ -16,7 +16,6 @@ public class SpawnPrefabs : MonoBehaviour
 
     void Start()
     {
-        
         _spawnNum = 2;
         PullObject = new GameObject[500];
         for (int i = 0; i < PullObject.Length; i++)
@@ -51,7 +50,6 @@ public class SpawnPrefabs : MonoBehaviour
         return array;
     }
 
-    // Update is called once per frame
     void Update()
     {
         time += Time.deltaTime;

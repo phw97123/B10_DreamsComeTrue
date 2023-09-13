@@ -31,7 +31,6 @@ public class UIMainHandler : MonoBehaviour
 
     void Start()
     {
-
         if (retryButton != null)
         {
             retryButton.onClick.AddListener(GameManager.Instance.RetryButton);
@@ -40,9 +39,7 @@ public class UIMainHandler : MonoBehaviour
         {
             quitButton.onClick.AddListener(GameManager.Instance.QuitButton);
         }
-
     }
-
 
     public void ActivePauseButton()
     {
@@ -61,7 +58,6 @@ public class UIMainHandler : MonoBehaviour
             pauseButton.SetActive(true);
         }
         pauseOn = !pauseOn;
-        
     }
 
     public void ActiveResult()

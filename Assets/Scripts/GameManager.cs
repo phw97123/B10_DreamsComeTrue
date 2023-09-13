@@ -6,17 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    
-    public RuntimeAnimatorController[] characterAnimController;
-    public GameObject[] playerKillObjectPrefab; 
+    public static GameManager Instance;
+
+    private UIMainHandler uiMainHandler;
+
     [SerializeField] public GameObject player;
     private PlayerMoveMent playerMovement;
-    private PlayerController playerController; 
+    private PlayerController playerController;
+    public RuntimeAnimatorController[] characterAnimController;
     private Animator playerAnimator;
-    public static GameManager Instance;
-    private UIMainHandler uiMainHandler;
-    public float time;
     private BoxCollider2D playerCollider;
+
+    public GameObject[] playerKillObjectPrefab; 
+
+    public float time;
+
     private bool isRunOnce;
     public float killTime; //자동차 난이도 주시시간
     public float fallTime; // 떨어지는 오브젝트 주기시간
@@ -25,26 +29,18 @@ public class GameManager : MonoBehaviour
     public int fallMaxSpeed;//주기 최대스피드
     public int fallMiniSpeed;//주기 최소스피드
 
-
-
     public const string UIMAINHANDLER_NAME = "uiMainHandler";
     public const string SAMPLESCENE = "SampleScene";
-    
 
     private void Awake()
     {
         fallMaxSpeed = 1;
         fallMiniSpeed = 1;
         
-       
-       
-
         isRunOnce = true;
         playerMovement = player.GetComponent<PlayerMoveMent>();
         playerController = player.GetComponent<PlayerController>();
         playerCollider = player.GetComponent<BoxCollider2D>();
-
-        
 
         if (Instance == null)
         {
@@ -65,13 +61,11 @@ public class GameManager : MonoBehaviour
     {
         uiMainHandler = UIManager.Instance.GetUIScript<UIMainHandler>(UIMAINHANDLER_NAME);
 
-
         if (PlayerPrefs.HasKey("CharacterNumber"))
         {
             playerAnimator = player.GetComponent<Animator>();
 
             playerAnimator.runtimeAnimatorController = characterAnimController[PlayerPrefs.GetInt("CharacterNumber")];
-
 
             switch (PlayerPrefs.GetInt("CharacterNumber"))
             {
@@ -98,7 +92,6 @@ public class GameManager : MonoBehaviour
                     Instantiate(playerKillObjectPrefab[3]);
                     break;
                 default:
-
                     break;
             }
         }
@@ -115,9 +108,7 @@ public class GameManager : MonoBehaviour
             AudioManager.Instance.PlaySfx(AudioManager.Sfx.gameover);
             isRunOnce = false;
         }
-        //Stage();
         LevelUp();
-
     }
 
     public void RetryButton()
@@ -141,25 +132,16 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.PlaySfx(AudioManager.Sfx.button);
     }
 
-    
-
     public void LevelUp()
     {
-
-
-        time += Time.deltaTime;
         killTime += Time.deltaTime; //자동차 난이도 주시시간
         fallTime += Time.deltaTime; // 떨어지는 오브젝트 주기시간
-        numberTime += Time.deltaTime;//
-        spawnTime += Time.deltaTime;
-
+        numberTime += Time.deltaTime;
 
         if (killTime > 15)   //플레이어 킬 오브젝트 속도주기
         {
-                   
             PlayerKillObjectMove.stageSpeed += 1;         
             killTime = 0;
-
         }
         if (numberTime > 15)   //생성숫자 늘리는 주기
         {
@@ -171,12 +153,6 @@ public class GameManager : MonoBehaviour
         {
             fallMaxSpeed += 1;
             fallTime = 0;
-
         }
-        
-
     }
-
-
-
 }

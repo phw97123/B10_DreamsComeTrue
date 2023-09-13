@@ -21,6 +21,7 @@ public class TextTyping : MonoBehaviour
         inputStr = str[num];
         count = 0;
     }
+
     void Update()
     {
         if (count < inputStr.Length && PlayerController.IsDead)
@@ -46,7 +47,6 @@ public class TextTyping : MonoBehaviour
 
     private void OnDeadAudio(int num)
     {
-        Debug.Log(num);
         switch (num)
         {
             case 0:

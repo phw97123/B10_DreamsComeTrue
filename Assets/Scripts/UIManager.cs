@@ -53,7 +53,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-
     void Awake()
     {
         if (Instance == null) //UIManager에 인스턴스가 없으면 현재 인스턴스
