@@ -45,6 +45,8 @@ public class StartSceneManager : MonoBehaviour
         }
         else  // 3.Instance 변수가 이미 현재 인스턴스를 참조하고 있을 경우 다음씬으로 갈 때 파괴하지 않음 
             DontDestroyOnLoad(gameObject);
+
+
     }
 
     void Start()
@@ -57,6 +59,7 @@ public class StartSceneManager : MonoBehaviour
 
     public void StartGame()
     {
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.button);
         PlayerPrefs.SetInt(PLAYERPREFS_CHARACTERNUMBER, (int)characterName);
         SceneManager.LoadScene(SAMPLESCENE); 
     }
@@ -72,12 +75,17 @@ public class StartSceneManager : MonoBehaviour
         {
             //이전 캐릭터의 인덱스를 구하고 음수가 되지 않기 위해 배열의 길이를 더하고 배열의 길이를 초과하지 않게 처리 
             spriteCount = (spriteCount - 1 + characterSprite.Length) % characterSprite.Length;
+            
+
         }
         else //오른쪽 버튼
         {
             //배열의 길이를 나눈 나머지를 사용함으로써 배열의 길이르 초과하지 않게 처리 
             spriteCount = (spriteCount + 1) % characterSprite.Length;
+    
+
         }
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.button);
 
         characterName = (CharacterName)spriteCount;
         Vector3 currentPosition = selectCharacter.transform.position;

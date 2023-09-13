@@ -29,6 +29,7 @@ public class UIStartHandler : MonoBehaviour
         //Debug.Log("생성");
         //UIManager의 Dictionary에 추가 
         UIManager.Instance.AddUIScript(UIHANDLER_NAME, this);
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.StartScene);
     }
 
     void Start()
@@ -47,13 +48,11 @@ public class UIStartHandler : MonoBehaviour
         if (helpButton != null)
         {
             helpButton.onClick.AddListener(OpenHelp);
-
         }
 
         if (helpExitBtn != null)
         {
             helpExitBtn.onClick.AddListener(CloseHelp);
-
         }
 
         if (leftButton != null)
@@ -65,6 +64,8 @@ public class UIStartHandler : MonoBehaviour
         {
             rightButton.onClick.AddListener(() => StartSceneManager.Instance.ShowCharacter(false));
         }
+
+  
     }
 
     void Update()
@@ -86,6 +87,8 @@ public class UIStartHandler : MonoBehaviour
         helpPanel.SetActive(true);
         leftButton.gameObject.SetActive(false);
         rightButton.gameObject.SetActive(false);
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.button);
+
     }
 
     private void CloseHelp()
@@ -93,6 +96,8 @@ public class UIStartHandler : MonoBehaviour
         helpPanel.SetActive(false);
         leftButton.gameObject.SetActive(true);
         rightButton.gameObject.SetActive(true);
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.button);
+
     }
 
     public void SetCharacterInfo(string characterName, string characterAbility, string characterExplanation)
@@ -123,5 +128,6 @@ public class UIStartHandler : MonoBehaviour
         {
             Debug.LogWarning("explanationText가 할당되지 않았습니다.");
         }
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.button);
     }
 }
