@@ -60,6 +60,7 @@ public class StartSceneManager : MonoBehaviour
         AudioManager.Instance.PlaySfx(AudioManager.Sfx.button);
         PlayerPrefs.SetInt(PLAYERPREFS_CHARACTERNUMBER, (int)characterName);
         UIManager.Instance.RemoveUIScript(UIHANDLER_NAME);
+        AudioManager.Instance.PlayIntro(false);
         SceneManager.LoadScene(SAMPLESCENE); 
     }
 
