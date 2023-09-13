@@ -5,7 +5,7 @@ using UnityEngine.InputSystem.XR;
 
 public class ObjectsFall : MonoBehaviour
 {
-    public static float speed;
+    public float speed;
     private Rigidbody2D _rigidbody;
     private float x;
     private float y;
@@ -17,6 +17,8 @@ public class ObjectsFall : MonoBehaviour
 
     private void Start()
     {
+        speed = Random.Range(1 + GameManager.Instance.fallMiniSpeed, 6 + GameManager.Instance.fallMaxSpeed);
+
         x = transform.position.x;
         y = transform.position.y;
     }
