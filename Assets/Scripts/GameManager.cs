@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     private Animator playerAnimator;
     public static GameManager Instance;
     private UIMainHandler uiMainHandler;
-    private float time;
+    public float time;
 
     public const string UIMAINHANDLER_NAME = "uiMainHandler";
     public const string SAMPLESCENE = "SampleScene";
