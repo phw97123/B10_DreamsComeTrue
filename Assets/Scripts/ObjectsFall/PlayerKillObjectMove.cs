@@ -11,6 +11,7 @@ public class PlayerKillObjectMove : MonoBehaviour
     private float _x;
     private float _time = 0;
     float _sleepTime = 5;
+    public static int stageSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +34,7 @@ public class PlayerKillObjectMove : MonoBehaviour
                 {
                     dir = Random.Range(-1, 2);
                 }
-                _spead = 4 * dir;
+                _spead = stageSpeed * 1 * dir;  //¿©±âÂÊ °Çµë
                 _x = -3.45f * dir;
                 _isRight = false;
             }
