@@ -29,7 +29,7 @@ public class UIStartHandler : MonoBehaviour
         //Debug.Log("생성");
         //UIManager의 Dictionary에 추가 
         UIManager.Instance.AddUIScript(UIHANDLER_NAME, this);
-        AudioManager.Instance.PlaySfx(AudioManager.Sfx.StartScene);
+        AudioManager.Instance.PlayIntro(true); 
     }
 
     void Start()
