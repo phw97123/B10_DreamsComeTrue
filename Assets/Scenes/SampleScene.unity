@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 68203637}
   - component: {fileID: 68203636}
   - component: {fileID: 68203635}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 68203634}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.55, y: 0.0829, z: 0.16017248}
+  m_LocalPosition: {x: 3.35, y: 0.0829, z: 0.16017248}
   m_LocalScale: {x: 0.9001, y: 9.7259, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3888,7 +3888,7 @@ GameObject:
   - component: {fileID: 1943714578}
   - component: {fileID: 1943714577}
   - component: {fileID: 1943714576}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3998,7 +3998,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1943714575}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.4833, y: 0.0962, z: 0.16017248}
+  m_LocalPosition: {x: -3.38, y: 0.0962, z: 0.16017248}
   m_LocalScale: {x: 0.9667074, y: 9.7925, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
