@@ -35,10 +35,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public GameObject player;
     private PlayerMoveMent playerMovement;
 
+    private SpriteRenderer playerSpriteRenderer; 
+
     private void Awake()
     {
         Score = 0;
         playerMovement = player.GetComponent<PlayerMoveMent>();
+        playerSpriteRenderer = player.GetComponentInChildren<SpriteRenderer>(); 
         BugDie = 16;
         Speedtime = 5f;
         Jumptime = 5;
@@ -130,6 +133,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    IEnumerator StunEffect()
+    {
+        // WaitForSeconds 객체를 미리 생성하고 변수에 할당하여 가비지 생성을 최소화 
+        WaitForSeconds waitTime = new WaitForSeconds(0.2f);
+        for (int i = 0; i <= 2; i++)
+        {
+            playerSpriteRenderer.color = Color.gray;
+            yield return waitTime;
+            playerSpriteRenderer.color = Color.white;
+            yield return waitTime;
+        }
+    }
+
     private void OutStun()
     {
         GetComponent<PlayerInput>().enabled = true;
@@ -174,6 +190,8 @@ public class PlayerController : MonoBehaviour
         {
             GetComponent<PlayerInput>().enabled = false;
             _isStun = true;
+
+            StartCoroutine(StunEffect()); 
         }
     }
 
