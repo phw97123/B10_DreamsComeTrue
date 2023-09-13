@@ -102,10 +102,10 @@ public class GameManager : MonoBehaviour
         }
         //Stage();
         LevelUp();
-        if(isDanger=true)
-        {
-            reSetting();
-        }
+        //if(isDanger=true)
+        //{
+        //    reSetting();
+        //}
     }
 
     public void RetryButton()
@@ -181,7 +181,7 @@ public class GameManager : MonoBehaviour
         fallTime += Time.deltaTime; // 떨어지는 오브젝트 주기시간
         numberTime += Time.deltaTime;//
         spawnTime += Time.deltaTime;
-        SpawnPrefabs.spawntime = 4;
+        //SpawnPrefabs.spawntime = 4;
 
         if (killTime > 6)   //플레이어 킬 오브젝트 속도주기
         {
@@ -195,29 +195,29 @@ public class GameManager : MonoBehaviour
         {
             SpawnPrefabs._spawnNum += 1;
             numberTime = 0;
-            a = SpawnPrefabs._spawnNum;
+          //  a = SpawnPrefabs._spawnNum;
         }
         if (fallTime > 5)  //떨어지는 속도 높이는 주기
         {
             fallMaxSpeed += 1;
             fallTime = 0;
-            b = fallMaxSpeed;
-            c = fallMiniSpeed;
+         //   b = fallMaxSpeed;
+          //  c = fallMiniSpeed;
         }
-        if (time > 10 && time < 11)
-        {//경고의 불값넘겨주기 넘겨주고 시간이 11초 넘으면 바로 값 넘겨주기
-            isDanger = true;
-            Debug.Log("경고경고");
-            SpawnPrefabs._spawnNum = 10;
-            fallMaxSpeed = 0;
-            fallMiniSpeed = 5;
-            //일정의 확률로 생기며
-            //경고문 생기면서 
-        }
-        else
-        {
-            isDanger = false;
-        }
+        //if (time > 10 && time < 11)
+        //{//경고의 불값넘겨주기 넘겨주고 시간이 11초 넘으면 바로 값 넘겨주기
+        //    isDanger = true;
+        //    Debug.Log("경고경고");
+        //    SpawnPrefabs._spawnNum = 10;
+        //    fallMaxSpeed = 0;
+        //    fallMiniSpeed = 5;
+        //    //일정의 확률로 생기며
+        //    //경고문 생기면서 
+        //}
+        //else
+        //{
+        //    isDanger = false;
+        //}
 
     }
 
