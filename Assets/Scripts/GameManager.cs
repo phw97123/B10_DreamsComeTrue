@@ -113,8 +113,8 @@ public class GameManager : MonoBehaviour
             AudioManager.Instance.PlaySfx(AudioManager.Sfx.gameover);
             isRunOnce = false;
         }
-       // LevelUp();
-        Stage();
+        LevelUp();
+       // Stage();
     }
 
     public void RetryButton()

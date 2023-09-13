@@ -17,7 +17,7 @@ public class ObjectsFall : MonoBehaviour
 
     private void Start()
     {
-        speed = Random.Range(4, 10);//Random.Range(1 + GameManager.Instance.fallMiniSpeed, 6 + GameManager.Instance.fallMaxSpeed);
+        speed = Random.Range(1 + GameManager.Instance.fallMiniSpeed, 6 + GameManager.Instance.fallMaxSpeed);
         x = transform.position.x;
         y = transform.position.y;
     }
