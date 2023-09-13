@@ -23,6 +23,7 @@ public class UIMainHandler : MonoBehaviour
     {
         UIManager.Instance.AddUIScript(UIMAINHANDLER_NANE, this);
         pausePanel.SetActive(false);
+        AudioManager.instance.PlayBgm(true);
     }
 
     void Start()
@@ -42,6 +43,8 @@ public class UIMainHandler : MonoBehaviour
 
     public void ActivePauseButton()
     {
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.button);
+
         if (!pauseOn)
         {
             Time.timeScale = 0;
