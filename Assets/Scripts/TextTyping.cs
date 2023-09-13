@@ -21,24 +21,21 @@ public class TextTyping : MonoBehaviour
         inputStr = str[num];
         count = 0;
     }
-    public void Start()
-    {
-        
-    }
-
     void Update()
     {
         if (count < inputStr.Length && PlayerController.IsDead)
         {
             time += Time.unscaledDeltaTime;
         }
-        else
+        else if (isStartTyping)
         {
             OnDeadAudio(PlayerPrefs.GetInt("CharacterNumber"));
+            isStartTyping = false;
         }
         if (time > 1.4f && PlayerController.IsDead)
         {
             isStartTyping = true;
+            AudioManager.Instance.PlaySfx(AudioManager.Sfx.Typing);
         }
         if (time > 0.1f && PlayerController.IsDead && isStartTyping)
         {
@@ -69,10 +66,6 @@ public class TextTyping : MonoBehaviour
 
     void textPrint()
     {
-        if (count % 15 == 0)
-        {
-            Debug.Log(1);
-        }
         typingText.text += inputStr[count];
         count++;
     }
