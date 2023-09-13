@@ -2668,6 +2668,7 @@ GameObject:
   - component: {fileID: 1079853179}
   - component: {fileID: 1079853181}
   - component: {fileID: 1079853180}
+  - component: {fileID: 1079853182}
   m_Layer: 5
   m_Name: PausePanel
   m_TagString: Untagged
@@ -2714,14 +2715,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5970096, g: 0.9811321, b: 0.86630034, a: 0.6666667}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 08c1826ca2ea6de41aa364849b3689c3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d6f7a23ef51460f4297c0e26a781e837, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2739,6 +2740,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1079853178}
   m_CullTransparentMesh: 1
+--- !u!95 &1079853182
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079853178}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6c8b1e0e209c91b4e8a327f04bab318b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1170919956
 GameObject:
   m_ObjectHideFlags: 0
