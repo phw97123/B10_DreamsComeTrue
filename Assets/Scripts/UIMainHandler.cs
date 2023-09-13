@@ -47,19 +47,21 @@ public class UIMainHandler : MonoBehaviour
     public void ActivePauseButton()
     {
         AudioManager.Instance.PlaySfx(AudioManager.Sfx.button);
-        pauseButton.SetActive(false);
+        
         if (!pauseOn)
         {
             Time.timeScale = 0;
             pausePanel.SetActive(true);
+            pauseButton.SetActive(false);
         }
         else
         {
             Time.timeScale = 1.0f;
             pausePanel.SetActive(false);
+            pauseButton.SetActive(true);
         }
         pauseOn = !pauseOn;
-        pauseButton.SetActive(true);
+        
     }
 
     public void ActiveResult()
