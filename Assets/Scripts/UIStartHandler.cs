@@ -128,6 +128,5 @@ public class UIStartHandler : MonoBehaviour
         {
             Debug.LogWarning("explanationText가 할당되지 않았습니다.");
         }
-        AudioManager.Instance.PlaySfx(AudioManager.Sfx.button);
     }
 }

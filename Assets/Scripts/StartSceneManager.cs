@@ -75,17 +75,16 @@ public class StartSceneManager : MonoBehaviour
         {
             //이전 캐릭터의 인덱스를 구하고 음수가 되지 않기 위해 배열의 길이를 더하고 배열의 길이를 초과하지 않게 처리 
             spriteCount = (spriteCount - 1 + characterSprite.Length) % characterSprite.Length;
-            
+            AudioManager.Instance.PlaySfx(AudioManager.Sfx.button);
 
         }
         else //오른쪽 버튼
         {
             //배열의 길이를 나눈 나머지를 사용함으로써 배열의 길이르 초과하지 않게 처리 
             spriteCount = (spriteCount + 1) % characterSprite.Length;
-    
+            AudioManager.Instance.PlaySfx(AudioManager.Sfx.button);
 
         }
-        AudioManager.Instance.PlaySfx(AudioManager.Sfx.button);
 
         characterName = (CharacterName)spriteCount;
         Vector3 currentPosition = selectCharacter.transform.position;
@@ -100,7 +99,7 @@ public class StartSceneManager : MonoBehaviour
                 break;
 
             case CharacterName.JBJ:
-                currentPosition.y = -3.2f;
+                currentPosition.y = -2.5f;
                 uiStartHandler.SetCharacterInfo("JBJ", "크기 Down, 마비시간 1.25", "FIFA를 좋아합니다.");
                 break;
 
