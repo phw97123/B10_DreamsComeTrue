@@ -45,8 +45,6 @@ public class StartSceneManager : MonoBehaviour
         }
         else  // 3.Instance 변수가 이미 현재 인스턴스를 참조하고 있을 경우 다음씬으로 갈 때 파괴하지 않음 
             DontDestroyOnLoad(gameObject);
-
-
     }
 
     void Start()

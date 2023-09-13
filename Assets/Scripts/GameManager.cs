@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     private UIMainHandler uiMainHandler;
 
+    private BoxCollider2D playerCollider;
+
+
     public const string UIMAINHANDLER_NAME = "uiMainHandler";
     public const string SAMPLESCENE = "SampleScene";
     
@@ -23,40 +26,10 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         playerMovement = player.GetComponent<PlayerMoveMent>();
-        playerController = player.GetComponent<PlayerController>(); 
+        playerController = player.GetComponent<PlayerController>();
+        playerCollider = player.GetComponent<BoxCollider2D>();
 
         
-        if (PlayerPrefs.HasKey("CharacterNumber"))
-        {
-            playerAnimator = player.GetComponent<Animator>();
-            
-            playerAnimator.runtimeAnimatorController = characterAnimController[PlayerPrefs.GetInt("CharacterNumber")];
-
-            
-            switch (PlayerPrefs.GetInt("CharacterNumber"))
-            {
-                case 0:
-                    playerController.StunTime = 1.0f;
-                    playerMovement.Speed = 1;
-                    Instantiate(playerKillObjectPrefab[0]); 
-                    break;
-                case 1:
-                    playerController.StunTime = 1.25f;
-                    Instantiate(playerKillObjectPrefab[1]);
-                    break;
-                case 2:
-                    playerController.StunTime = 0.75f;
-                    Instantiate(playerKillObjectPrefab[2]);
-                    break;
-                case 3:
-                    playerMovement.Speed = 1.25f;
-                    Instantiate(playerKillObjectPrefab[3]);
-                    break;
-                default:
-                    
-                    break;
-            }
-        }
 
         if (Instance == null)
         {
@@ -71,12 +44,50 @@ public class GameManager : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
-
     }
 
     void Start()
     {
         uiMainHandler = UIManager.Instance.GetUIScript<UIMainHandler>(UIMAINHANDLER_NAME);
+
+
+        if (PlayerPrefs.HasKey("CharacterNumber"))
+        {
+            playerAnimator = player.GetComponent<Animator>();
+
+            playerAnimator.runtimeAnimatorController = characterAnimController[PlayerPrefs.GetInt("CharacterNumber")];
+
+
+            switch (PlayerPrefs.GetInt("CharacterNumber"))
+            {
+                case 0:
+                    playerCollider.size = new Vector2(2.3f, 2.7f);
+                    playerController.StunTime = 1.0f;
+                    playerMovement.Speed = 1;
+                    Instantiate(playerKillObjectPrefab[0]);
+                    break;
+                case 1:
+                    playerCollider.size = new Vector2(1.3f, 2.3f);
+                    playerController.StunTime = 1.25f;
+                    Instantiate(playerKillObjectPrefab[1]);
+                    break;
+                case 2:
+                    playerCollider.size = new Vector2(3f, 2.5f);
+                    playerController.StunTime = 0.75f;
+                    Instantiate(playerKillObjectPrefab[2]);
+                    break;
+                case 3:
+                    playerCollider.offset = new Vector2(playerCollider.offset.x, 0.8f);
+                    playerCollider.size = new Vector2(1.7f, 2.3f);
+                    playerMovement.Speed = 1.25f;
+                    Instantiate(playerKillObjectPrefab[3]);
+                    break;
+                default:
+
+                    break;
+            }
+        }
+
     }
 
     void Update()
