@@ -1091,6 +1091,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f637624a4fede94f8b1079b124d7f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  introClip: {fileID: 8300000, guid: de9d5338130096545a41c83aefa9e59b, type: 3}
+  introVolume: 0.2
   bgmClip: {fileID: 8300000, guid: 69fcb8f608b8c7542b4d089fe66d1171, type: 3}
   bgmVolume: 0.2
   sfxClips:

@@ -6,6 +6,11 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
+    [Header("#Intro")]
+    public AudioClip introClip;
+    public float introVolume;
+    AudioSource introPlayer;
+
     [Header("#BGM")]
     public AudioClip bgmClip;
     public float bgmVolume;
@@ -39,6 +44,15 @@ public class AudioManager : MonoBehaviour
 
     void Init()
     {
+        // 인트로 플레이어 초기화
+        GameObject introObject = new GameObject("IntroPlayer");
+        introObject.transform.parent = transform;
+        introPlayer = introObject.AddComponent<AudioSource>();
+        introPlayer.playOnAwake = false;
+        introPlayer.loop = true;
+        introPlayer.volume = introVolume;
+        introPlayer.clip = introClip;
+
         // 배경음 플레이어 초기화
         GameObject bgmObject = new GameObject("BgmPlayer");
         bgmObject.transform.parent = transform;
@@ -58,6 +72,18 @@ public class AudioManager : MonoBehaviour
             sfxPlayers[index] = sfxObject.AddComponent<AudioSource>();
             sfxPlayers[index].playOnAwake = false;
             sfxPlayers[index].volume = sfxVolume;
+        }
+    }
+
+    public void PlayIntro(bool isIntro)
+    {
+        if (isIntro)
+        {
+            introPlayer.Play();
+        }
+        else
+        {
+            introPlayer.Stop();
         }
     }
 
