@@ -54,7 +54,7 @@ public class SpawnPrefabs : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        if (time > 1f)//spawntime -> 얘를 점점 감소 시키는 것이다. 스폰을 얼마나 일정주기로 할건가
+        if (time > 0.7f)//spawntime -> 얘를 점점 감소 시키는 것이다. 스폰을 얼마나 일정주기로 할건가
         {
             SpawnPrefab(_spawnNum);
         }
