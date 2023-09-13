@@ -111,6 +111,7 @@ public class GameManager : MonoBehaviour
 
     public void QuitButton()
     {
+        AudioManager.Instance.PlayBgm(false);
         PlayerController.IsDead = false;
         Time.timeScale = 1;
 

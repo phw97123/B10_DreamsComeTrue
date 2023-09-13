@@ -120,6 +120,7 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
+                    OnDeadAudio(PlayerPrefs.GetInt("CharacterNumber"));
                     IsDead = true;
                 }
                 break;
@@ -127,6 +128,26 @@ public class PlayerController : MonoBehaviour
         if (isInvincibility)
         {
             other.gameObject.SetActive(false);
+        }
+    }
+
+    private void OnDeadAudio(int num)
+    {
+        Debug.Log(num);
+        switch (num)
+        {
+            case 0:
+                AudioManager.Instance.PlaySfx(AudioManager.Sfx.PS5);
+                break;
+            case 1:
+                AudioManager.Instance.PlaySfx(AudioManager.Sfx.FIFA);
+                break;
+            case 2:
+                AudioManager.Instance.PlaySfx(AudioManager.Sfx.Wine);
+                break;
+            case 3:
+                AudioManager.Instance.PlaySfx(AudioManager.Sfx.SleepSound);
+                break;
         }
     }
 
