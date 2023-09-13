@@ -32,6 +32,10 @@ public class TextTyping : MonoBehaviour
         {
             time += Time.unscaledDeltaTime;
         }
+        else
+        {
+            OnDeadAudio(PlayerPrefs.GetInt("CharacterNumber"));
+        }
         if (time > 1.4f && PlayerController.IsDead)
         {
             isStartTyping = true;
@@ -43,8 +47,32 @@ public class TextTyping : MonoBehaviour
         }
     }
 
+    private void OnDeadAudio(int num)
+    {
+        Debug.Log(num);
+        switch (num)
+        {
+            case 0:
+                AudioManager.Instance.PlaySfx(AudioManager.Sfx.PS5);
+                break;
+            case 1:
+                AudioManager.Instance.PlaySfx(AudioManager.Sfx.FIFA);
+                break;
+            case 2:
+                AudioManager.Instance.PlaySfx(AudioManager.Sfx.Wine);
+                break;
+            case 3:
+                AudioManager.Instance.PlaySfx(AudioManager.Sfx.SleepSound);
+                break;
+        }
+    }
+
     void textPrint()
     {
+        if (count % 15 == 0)
+        {
+            Debug.Log(1);
+        }
         typingText.text += inputStr[count];
         count++;
     }
