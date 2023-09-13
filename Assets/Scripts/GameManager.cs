@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
 
     private BoxCollider2D playerCollider;
 
-
     public const string UIMAINHANDLER_NAME = "uiMainHandler";
     public const string SAMPLESCENE = "SampleScene";
     
@@ -114,6 +113,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerController.IsDead = false;
         Time.timeScale = 1;
+
         UIManager.Instance.RemoveUIScript(UIMAINHANDLER_NAME);
         SceneManager.LoadScene("StartScene");
         AudioManager.Instance.PlaySfx(AudioManager.Sfx.button);
