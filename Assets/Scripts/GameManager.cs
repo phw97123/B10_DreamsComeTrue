@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     private UIMainHandler uiMainHandler;
     public float time;
     private BoxCollider2D playerCollider;
+    private bool isRunOnce;
 
     public const string UIMAINHANDLER_NAME = "uiMainHandler";
     public const string SAMPLESCENE = "SampleScene";
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        isRunOnce = true;
         playerMovement = player.GetComponent<PlayerMoveMent>();
         playerController = player.GetComponent<PlayerController>();
         playerCollider = player.GetComponent<BoxCollider2D>();
@@ -91,17 +93,13 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (PlayerController.IsDead == true)
+        if (PlayerController.IsDead == true && isRunOnce)
         {
             Time.timeScale = 0;
             uiMainHandler.ActiveResult();
             AudioManager.Instance.PlayBgm(false);
-            
-            if (PlayerController.IsDead == true)
-            {
-                AudioManager.Instance.PlaySfx(AudioManager.Sfx.gameover);
-                PlayerController.IsDead = false;
-            }
+            AudioManager.Instance.PlaySfx(AudioManager.Sfx.gameover);
+            isRunOnce = false;
         }
         Stage();
     }
