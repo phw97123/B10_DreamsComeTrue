@@ -28,8 +28,7 @@
 | PlayerMoveMent | [플레이어 점프](https://github.com/phw97123/B10_DreamsComeTrue/blob/bf7207c8b19e0b0063812ae7663a9d35052f8c89/Assets/Scripts/PlayerMove/PlayerMoveMent.cs#L41-L49) |
 | PlayerController | [플레이어 피격 효과](https://github.com/phw97123/B10_DreamsComeTrue/blob/bf7207c8b19e0b0063812ae7663a9d35052f8c89/Assets/Scripts/PlayerMove/PlayerController.cs#L132-L143) |
 | GameManger | [게임 로직 및 난이도 조절](https://github.com/phw97123/B10_DreamsComeTrue/blob/bf7207c8b19e0b0063812ae7663a9d35052f8c89/Assets/Scripts/GameManager.cs#L135-L157) |
-| SpawnPrefabs | [아이템 생성](https://github.com/phw97123/B10_DreamsComeTrue/blob/bf7207c8b19e0b0063812ae7663a9d35052f8c89/Assets/Scripts/ObjectsFall/SpawnPrefabs.cs#L62-L80) |
-| SpawnPrefabs | [풀링오브젝트 & 섞기](https://github.com/phw97123/B10_DreamsComeTrue/blob/bf7207c8b19e0b0063812ae7663a9d35052f8c89/Assets/Scripts/ObjectsFall/SpawnPrefabs.cs#L62-L80) |
+| SpawnPrefabs | [풀링오브젝트 & 섞기 & 아이템 스폰](https://github.com/phw97123/B10_DreamsComeTrue/blob/bf7207c8b19e0b0063812ae7663a9d35052f8c89/Assets/Scripts/ObjectsFall/SpawnPrefabs.cs#L62-L80) |
 | PlayerKillObjectMove | [게임오버오브젝트 이동](https://github.com/phw97123/B10_DreamsComeTrue/blob/bf7207c8b19e0b0063812ae7663a9d35052f8c89/Assets/Scripts/ObjectsFall/PlayerKillObjectMove.cs#L21-L59) |
 | PlayerController | [오브젝트 충돌](https://github.com/phw97123/B10_DreamsComeTrue/blob/bf7207c8b19e0b0063812ae7663a9d35052f8c89/Assets/Scripts/PlayerMove/PlayerController.cs#L86-L130) |
 | PlayerController | [아이템 실행](https://github.com/phw97123/B10_DreamsComeTrue/blob/bf7207c8b19e0b0063812ae7663a9d35052f8c89/Assets/Scripts/PlayerMove/PlayerController.cs#L151-L300) |
