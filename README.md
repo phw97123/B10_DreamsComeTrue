@@ -1,5 +1,5 @@
-![header](https://capsule-render.vercel.app/api?type=slice&color=071952&height=300&section=header&text=DreamsComeTrue&fontSize=90&fontColor=EEEEEE)
 
+![Alt text](Untitled-1.png)
 ## 목차
 
 | [게임 소개](#게임-소개) |
